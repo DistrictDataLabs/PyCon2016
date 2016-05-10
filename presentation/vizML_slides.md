@@ -125,32 +125,32 @@ __True__
 
 <section data-markdown>
 # Visual feature analysis (1)
-![Boxplots](figures/box_viz.py)
+![Boxplots](figures/box_viz.png)
 </section>
 
 <section data-markdown>
 # Visual feature analysis (2)
-![Histogram](figures/hist_viz.py)
+![Histogram](figures/hist_viz.png)
 </section>
 
 <section data-markdown>
 # Visual feature analysis (3)
-![Radviz](figures/rad_viz.py)
+![Radviz](figures/rad_viz.png)
 </section>
 
 <section data-markdown>
 # Visual feature analysis (4)
-![Scatterplot Matrix](figures/splom_viz.py)
+![Scatterplot Matrix](figures/splom_viz.png)
 </section>
 
 <section data-markdown>
 # Visual feature analysis (5)
-![Jointplot](figures/joint_viz.py)
+![Jointplot](figures/joint_viz.png)
 </section>
 
 <section data-markdown>
 # Visual feature analysis (6)
-![Parallel coordinates](figures/pcoord_viz.py)
+![Parallel coordinates](figures/pcoord_viz.png)
 </section>
 
 <section data-markdown>
