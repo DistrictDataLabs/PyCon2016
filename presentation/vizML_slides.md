@@ -2,7 +2,7 @@
 # Visual Diagnostics for More Informed Machine Learning
 ## Within and Beyond Scikit-Learn
 
-_presented by Rebecca Bilbro_
+_presented by Rebecca Bilbro_    
 May 30, 2016
 </section>
 
@@ -155,26 +155,22 @@ __True__
 
 <section data-markdown>
 # Visual model selection (1)
+![Classifier comparison](figures/classifiercomparison.png)
 </section>
 
 <section data-markdown>
 # Visual model selection (2)
+![Cluster comparison](figures/cluster_comparison.png)
 </section>
 
 <section data-markdown>
 # Visual model selection (3)
-</section>
-
-<section data-markdown>
-# Visual model selection (3)
+![Scikit-Learn cheatsheet](figures/scikitlearncheatsheet.png)
 </section>
 
 <section data-markdown>
 # Visual model selection (4)
-</section>
-
-<section data-markdown>
-# Visual model selection (5)
+![Model family map](figures/bettermap.jpg)
 </section>
 
 <section data-markdown>
