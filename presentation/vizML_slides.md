@@ -175,6 +175,7 @@ __True__
 
 <section data-markdown>
 # Visual evaluation (1)
+![Classification report heatmap](figures/classrpt_viz.png)
 </section>
 
 <section data-markdown>
