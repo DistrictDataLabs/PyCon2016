@@ -155,12 +155,12 @@ __True__
 
 <section data-markdown>
 # Visual model selection (1)
-![Classifier comparison](figures/classifiercomparison.png)
+![Classifier comparison](figures/classifiercompare_DDL.png)
 </section>
 
 <section data-markdown>
 # Visual model selection (2)
-![Cluster comparison](figures/cluster_comparison.png)
+![Cluster comparison](figures/clustercompare_DDL.png)
 </section>
 
 <section data-markdown>
