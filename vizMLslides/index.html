@@ -34,27 +34,27 @@
 						May 30, 2016
 					</script>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						Nice to meet you
-					</script>
+				<section id="nicetomeetyou">
+					<h2>Nice to meet you</h2>
+					<p class="fragment">My name is Rebecca</p>
+					<p><span class="fragment">I'm not a developer,</span> <span class="fragment">a computer scientist,</span> <span class="fragment">or an engineer.</span></p>
+					<p class="fragment">I'm a data scientist.</p>
+					<p class="fragment">I do machine learning.</p>
+					<p class="fragment">I'm self-taught.</p>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Where this is going
-						  1. Kansas
-						  2. Oz
-						  3. Yellow brick road
-						  4. Ruby slippers
+					<h2>Where this is going</h2>
+					1. Kansas
+					2. Oz
+					3. Yellow brick road
+					4. Ruby slippers
 					</script>
 				</section>
 				<section id="trueorfalse">
 					<h2>True or False?</h2>
 					<p>"Machine learning is hard"</p>
-					<p class="fragment">.</p>
-					<p class="fragment">.</p>
-					<p class="fragment">.</p>
-					<p class="fragment">I want to argue "False" </p>
+					<p class="fragment">False</p>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -63,7 +63,7 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Instantiating and fitting a model
+				  <h2>Instantiating and fitting a model</h2>
 						```python
 						from sklearn.linear_model import LogisticRegression
 						model = LogisticRegression()
@@ -74,7 +74,12 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						How to do it
+					That's basically it.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+				  <h2>How to do it</h2>
 						  1. Get data
 						  2. Prep data
 						  3. Pick model
@@ -85,8 +90,7 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Prep data
-
+					<h2>Prep data</h2>
 						```python
 						import pandas as pd
 						df = pd.read_csv(PATH)
@@ -105,13 +109,13 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Pick model
+					<h2>Pick model</h2>
 						![Ask Stackoverflow](images/stackoverflow.png)
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Fit model
+					<h2>Fit model</h2>
 						```python
 						from sklearn.linear_model import LogisticRegression
 						model = LogisticRegression()
@@ -122,7 +126,7 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						Validate model
+					<h2>Validate model</h2>
 						```python
 						from sklearn.metrics import mean_squared_error
 						from sklearn.metrics import r2_score
@@ -137,13 +141,17 @@
 				<section id="trueorfalseredux">
 					<h2>True or False?</h2>
 					<p>"Informed machine learning is hard"</p>
-					<p class="fragment">.</p>
-					<p class="fragment">.</p>
-					<p class="fragment">.</p>
 					<p class="fragment">True </p>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
+						Birds fly over the rainbow. Why can't I?
+						![Somewhere over the rainbox](images/overtherainbow2.jpg)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						I've a feeling we're not in Kansas anymore.
 						![Not in Kansas anymore](images/dorothy.jpg)
 					</script>
 				</section>
@@ -219,45 +227,37 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					visual evaluation image here
+					![ROC AUC curve](images/roc_auc_compare.png)
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					another visual evaluation image here
+					![Regression prediction error plot](images/model_error.png)
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					and another visual evaluation image here
+					![Regression residuals plot](images/residuals.png)
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					visual tuning
+						# Visual tuning
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					blind gridsearch
+					![Validation curve](images/validation_curve.png)
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					visual gridsearch
+					![Blind gridsearch](images/gridsearch.png)
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					Workflow
-					  1. feature engineering
-					  2. algorithm selection
-					  3. parameter tuning
-						</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-					image of MST
+					![Visual gridsearch](images/validation_heatmap.png)
 						</script>
 				</section>
 				<section data-markdown>
@@ -267,22 +267,34 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					Wishlist
+					Making the tools easier to deploy
+					```bash
+					pip install toto
+					```
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					Wishlist
+					Facilitating the entire workflow
+					1. feature engineering
+					2. algorithm selection
+					3. parameter tuning
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					Trinket
+					# Trinket
+					![The model selection triple](images/model_triple_workflow.png)
 						</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-					Toto
+					Interactive tools
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Visual Steering
 						</script>
 				</section>
 				<section data-markdown>
