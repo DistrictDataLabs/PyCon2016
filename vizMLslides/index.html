@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>District Data Labs - PyCon 2016 awesomeness</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/ddl.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+						Visual Diagnostics for More Informed Machine Learning:
+						Within and Beyond Scikit-Learn
+
+						presented by Rebecca Bilbro
+
+						May 30, 2016
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Nice to meet you
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Where this is going
+						  1. Kansas
+						  2. Oz
+						  3. Yellow brick road
+						  4. Ruby slippers
+					</script>
+				</section>
+				<section id="trueorfalse">
+					<h2>True or False?</h2>
+					<p>"Machine learning is hard"</p>
+					<p class="fragment">.</p>
+					<p class="fragment">.</p>
+					<p class="fragment">.</p>
+					<p class="fragment">I want to argue "False" </p>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						I know, it's blasphemy
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Instantiating and fitting a model
+						```python
+						from sklearn.linear_model import LinearRegression
+						model = LogisticRegression()
+						model.fit(X,y)
+						model.predict(X)
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						How to do it
+						  1. Get data
+						  2. Prep data
+						  3. Pick model
+						  4. Fit model
+						  5. Validate model
+						  6. Use model
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Prep data
+
+						```python
+						import pandas as pd
+						df = pd.read_csv(PATH)
+
+						df.describe()
+
+						df['missing_vals'].fillna(df['missing_vals'].mean(), inplace=True)
+
+						features = df[['attribute1','attribute2','attribute3',...]]
+						labels   = df['target']
+
+						from sklearn.preprocessing import scale
+						scaled_features = scale(features)
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Pick model
+						![Ask Stackoverflow](images/stackoverflow.png)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Fit model
+						```python
+						from sklearn.linear_model import LinearRegression
+						model = LogisticRegression()
+						model.fit(X,y)
+						model.predict(X)
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						Validate model
+						```python
+						from sklearn.metrics import mean_squared_error
+						from sklearn.metrics import r2_score
+						print mse(expected, predicted)
+						print r2_score(expected, predicted)
+
+						from sklearn.metrics import classification_report
+						print classification_report(expected, predicted)
+						```
+					</script>
+				</section>
+				<section id="trueorfalseredux">
+					<h2>True or False?</h2>
+					<p>"Informed machine learning is hard"</p>
+					<p class="fragment">.</p>
+					<p class="fragment">.</p>
+					<p class="fragment">.</p>
+					<p class="fragment">True </p>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Not in Kansas anymore](images/dorothy.jpg)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Visual feature analysis
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Boxplots](images/box_viz.png)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Histogram](images/hist_viz.png)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Radviz](images/rad_viz.png)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+		        ![Scatterplot Matrix](images/splom_viz.png)
+			    	</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Jointplot](images/joint_viz.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Parallel coordinates](images/pcoord_viz.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Visual model selection
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Scikit-Learn cheatsheet](images/scikitlearncheatsheet.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Cluster comparison](images/clustercompare_DDL.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Classifier comparison](images/classifiercompare_DDL.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						![Model family map](images/ml_map_v4.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Visual evaluation
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					![Classification report heatmap](images/classrpt_viz.png)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					visual evaluation image here
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					another visual evaluation image here
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					and another visual evaluation image here
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					visual tuning
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					blind gridsearch
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					visual gridsearch
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Workflow
+					  1. feature engineering
+					  2. algorithm selection
+					  3. parameter tuning
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					image of MST
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					![Ruby slippers](images/rubyslippers.jpg)
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Wishlist
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Wishlist
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Trinket
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Toto
+						</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					Fin
+						</script>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
