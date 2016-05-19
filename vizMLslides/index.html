@@ -34,62 +34,71 @@
 						May 30, 2016
 					</script>
 				</section>
+
 				<section id="nicetomeetyou">
 					<h2>Nice to meet you</h2>
 					<p class="fragment">My name is Rebecca</p>
 				</section>
+
 				<section id="credentials">
 					<h2>Credentials:</h2>
 					<p class="fragment">1. "data scientist"</p>
-					<p class="fragment">2. works in Federal government</p>
-					<p class="fragment">3. self-taught machine learning practitioner</p>
-					<p class="fragment">4. programming in Python for 2 years</p>
-					<p class="fragment">5. also programs in R sometimes</p>
+					<p class="fragment">2. Federal government</p>
+					<p class="fragment">3. machine learning (self-taught)</p>
+					<p class="fragment">4. Python for ~2 years</p>
+					<p class="fragment">5. sometimes R too</p>
+					<p class="fragment"> :) </p>
 				</section>
+
+				<section id="outline">
+					<h2>Where this is going</h2>
+					<p class="fragment">1. Kansas</p>
+				  <p class="fragment">2. Oz</p>
+					<p class="fragment">3. Yellow brick road</p>
+					<p class="fragment">4. Ruby slippers</p>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					<h2>Where this is going</h2>
-					1. Kansas
-					2. Oz
-					3. Yellow brick road
-					4. Ruby slippers
-					</script>
-				</section>
-				<section id="trueorfalse">
 					<h2>True or False?</h2>
 					<p>"Machine learning is hard"</p>
-					<p class="fragment">False</p>
+					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Workflow</h2>
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-						  1. Get data
-						  2. Prep data
-						  3. Pick model
-						  4. Fit model
-						  5. Validate model
-						  6. Use model
+						  1. Prep data
+						  2. Pick model
+						  3. Fit model
+						  4. Validate model
+						  5. Deploy
 					</script>
-				</section>}
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Prep data</h2>
 						```python
 						import pandas as pd
+						PATH = "data.csv"
 						df = pd.read_csv(PATH)
 						```
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Pick model</h2>
 						![Ask Stackoverflow](images/stackoverflow.png)
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Fit model</h2>
@@ -101,6 +110,7 @@
 						```
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Validate model</h2>
@@ -109,186 +119,230 @@
 						from sklearn.metrics import r2_score
 						print mse(expected, predicted)
 						print r2_score(expected, predicted)
-
+						# or
 						from sklearn.metrics import classification_report
 						print classification_report(expected, predicted)
 						```
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					<h2>Use gridsearch to improve scores</h2>
+					<h2>Use gridsearch</h2>
 					![Blind gridsearch](images/gridsearch.png)
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					<h2>Put everything into a pipeline</h2>
+					<h2>Use pipelines to deploy</h2>
 					![Rusty pipes](images/pipelines.png)
 					</script>
 				</section>
-				<section id="trueorfalseredux">
-					<h2>True or False?</h2>
-					<p>"Informed machine learning is hard"</p>
-					<p class="fragment">True </p>
+
+				<section data-markdown>
+					<script type="text/template">
+					Done!
+					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						Birds fly over the rainbow. Why can't I?
 						![Somewhere over the rainbox](images/overtherainbow2.jpg)
 					</script>
 				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					![The model selection triple](images/model_triple_workflow.png)
+						</script>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						I've a feeling we're not in Kansas anymore.
 						![Not in Kansas anymore](images/dorothy.jpg)
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-						# Visual feature analysis
+						<h2>Visual feature analysis</h2>
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Boxplots](images/box_viz.png)
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Histogram](images/hist_viz.png)
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Radviz](images/rad_viz.png)
 					</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 		        ![Scatterplot Matrix](images/splom_viz.png)
 			    	</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Jointplot](images/joint_viz.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Parallel coordinates](images/pcoord_viz.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-						# Visual model selection
+						<h2>Visual model selection</h2>
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Scikit-Learn cheatsheet](images/scikitlearncheatsheet.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Cluster comparison](images/clustercompare_DDL.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Classifier comparison](images/classifiercompare_DDL.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						![Model family map](images/ml_map_v4.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-						# Visual evaluation
+						<h2>Visual evaluation</h2>
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![Classification report heatmap](images/classrpt_viz.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![ROC AUC curve](images/roc_auc_compare.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![Regression prediction error plot](images/model_error.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![Regression residuals plot](images/residuals.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-						# Visual tuning
+						<h2>Visual tuning</h2>
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![Validation curve](images/validation_curve.png)
 						</script>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-					![Blind gridsearch](images/gridsearch.png)
-						</script>
-				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![Visual gridsearch](images/validation_heatmap.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 					![Ruby slippers](images/rubyslippers.jpg)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					Making the tools easier to deploy
-					```bash
-					pip install toto
-					```
+					We need to facilitate better workflows
 						</script>
 				</section>
+
+				<section id="workflow">
+					1. feature analysis
+					<p class="fragment">2. algorithm selection</p>
+					<p class="fragment">3. parameter tuning</p>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					Facilitating the entire workflow
-					1. feature engineering
-					2. algorithm selection
-					3. parameter tuning
+					<h2>Trinket</h2>
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					# Trinket
 					![The model selection triple](images/model_triple_workflow.png)
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					Interactive tools
+					<h2>Making it easier</h2>
+					```bash
+					pip install yellowbrick
+					```
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					Visual Steering
+					<h2>Interactive tools?</h2>
 						</script>
 				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-					Fin
+					<h2>Visual Steering?</h2>
+						</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					Come sprint with me!
+					<h2>Trinket</h2>
+					Rebecca Bilbro    
+					District Data Labs
 						</script>
 				</section>
 			</div>
