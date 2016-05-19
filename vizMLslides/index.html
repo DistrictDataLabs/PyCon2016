@@ -37,10 +37,14 @@
 				<section id="nicetomeetyou">
 					<h2>Nice to meet you</h2>
 					<p class="fragment">My name is Rebecca</p>
-					<p><span class="fragment">I'm not a developer,</span> <span class="fragment">a computer scientist,</span> <span class="fragment">or an engineer.</span></p>
-					<p class="fragment">I'm a data scientist.</p>
-					<p class="fragment">I do machine learning.</p>
-					<p class="fragment">I'm self-taught.</p>
+				</section>
+				<section id="credentials">
+					<h2>Credentials:</h2>
+					<p class="fragment">1. "data scientist"</p>
+					<p class="fragment">2. works in Federal government</p>
+					<p class="fragment">3. self-taught machine learning practitioner</p>
+					<p class="fragment">4. programming in Python for 2 years</p>
+					<p class="fragment">5. also programs in R sometimes</p>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -58,28 +62,11 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						I know, it's blasphemy
+					<h2>Workflow</h2>
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-				  <h2>Instantiating and fitting a model</h2>
-						```python
-						from sklearn.linear_model import LogisticRegression
-						model = LogisticRegression()
-						model.fit(X,y)
-						model.predict(X)
-						```
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-					That's basically it.
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-				  <h2>How to do it</h2>
 						  1. Get data
 						  2. Prep data
 						  3. Pick model
@@ -87,23 +74,13 @@
 						  5. Validate model
 						  6. Use model
 					</script>
-				</section>
+				</section>}
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Prep data</h2>
 						```python
 						import pandas as pd
 						df = pd.read_csv(PATH)
-
-						df.describe()
-
-						df['missing_vals'].fillna(df['missing_vals'].mean(), inplace=True)
-
-						features = df[['attribute1','attribute2','attribute3',...]]
-						labels   = df['target']
-
-						from sklearn.preprocessing import scale
-						scaled_features = scale(features)
 						```
 					</script>
 				</section>
@@ -136,6 +113,18 @@
 						from sklearn.metrics import classification_report
 						print classification_report(expected, predicted)
 						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Use gridsearch to improve scores</h2>
+					![Blind gridsearch](images/gridsearch.png)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					<h2>Put everything into a pipeline</h2>
+					![Rusty pipes](images/pipelines.png)
 					</script>
 				</section>
 				<section id="trueorfalseredux">
