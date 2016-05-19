@@ -23,7 +23,15 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 36px;
   font-weight: normal;
-  color: #333; }
+  color: #333;
+ 	background: url(../../images/ddl-logo-beaker.svg) left bottom no-repeat;
+	background-position-x: 4%;
+	background-position-y: 92%;
+	background-size: 8%;
+	
+	
+
+}
 
 ::selection {
   color: #fff;
