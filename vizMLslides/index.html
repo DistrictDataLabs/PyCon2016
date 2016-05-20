@@ -42,11 +42,11 @@
 
 				<section id="credentials">
 					<h1>Credentials:</h1>
-					<p class="fragment">1. "data scientist"</p>
+					<p class="fragment">1. 'data scientist'</p>
 					<p class="fragment">2. Federal government</p>
-					<p class="fragment">3. machine learning (self-taught)</p>
-					<p class="fragment">4. Python for ~2 years</p>
-					<p class="fragment">5. sometimes R too</p>
+					<p><span class="fragment">3. PhD</span> <span class="fragment">in...</span> <span class="fragment">not machine learning</span></p>
+					<p class="fragment">4. 2 years of Python</p>
+					<p class="fragment">5. sometimes R</p>
 					<p class="fragment"> :) </p>
 				</section>
 
@@ -67,7 +67,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Workflow</h1>
+					<h1>Here's how to do it</h1>
 					</script>
 				</section>
 
@@ -83,7 +83,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Prep data</h1>
+					Prep data
 						```python
 						import pandas as pd
 						PATH = "data.csv"
@@ -94,15 +94,15 @@
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Pick model</h1>
+					Pick model
 						![Ask Stackoverflow](images/stackoverflow.png)
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Fit model</h1>
-						```php
+					Fit model
+						```python
 						from sklearn.linear_model import LogisticRegression
 						model = LogisticRegression()
 						model.fit(X,y)
@@ -113,7 +113,7 @@
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Validate model</h1>
+					Validate model
 						```python
 						from sklearn.metrics import mean_squared_error
 						from sklearn.metrics import r2_score
@@ -126,18 +126,10 @@
 					</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					<h1>Use gridsearch</h1>
-					![Blind gridsearch](images/gridsearch.png)
-					</script>
+				<section data-background="images/gridsearch.png" data-background-size="700px">
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					<h1>Use pipelines</h1>
-					![Rusty pipes](images/pipelines.png)
-					</script>
+				<section data-background="images/pipelines.png" data-background-size="800px">
 				</section>
 
 				<section data-markdown>
@@ -146,24 +138,19 @@
 					</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						Birds fly over the rainbow. Why can't I?
-						![Somewhere over the rainbox](images/overtherainbow2.jpg)
-					</script>
+				<section data-background="images/noidea.jpg" data-background-size="700px">
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![The model selection triple](images/model_triple_workflow_color.png)
-						</script>
+				<section data-background="images/overtherainbow2.jpg" data-background-size="1000px">
+					<h1 class="white">Birds fly over the rainbow. Why can't I?</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						I've a feeling we're not in Kansas anymore.
-						![Not in Kansas anymore](images/dorothy.jpg)
-					</script>
+				<section data-background="images/model_triple_workflow_color.png" data-background-size="700px">
+				</section>
+
+
+				<section data-background="images/dorothy.jpg" data-background-size="1000px">
+					<h1 class="white">I've a feeling we're not in Kansas anymore.</h1>
 				</section>
 
 				<section data-markdown data-background="#f2be2c">
@@ -172,40 +159,29 @@
 					</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Boxplots](images/box_viz.png)
-					</script>
+
+				<section data-background="images/box_viz.png" data-background-size="1000px">
+					<h1 class="grey">Boxplots</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Histogram](images/hist_viz.png)
-					</script>
+				<section data-background="images/hist_viz.png" data-background-size="1000px">
+					<h1 class="grey">Histograms</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Radviz](images/rad_viz.png)
-					</script>
+				<section data-background="images/rad_viz.png" data-background-size="1000px">
+					<h1 class="grey">Radviz</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-		        ![Scatterplot Matrix](images/splom_viz.png)
-			    	</script>
+				<section data-background="images/splom_viz.png" data-background-size="1000px">
+					<h1 class="grey">Splom</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Jointplot](images/joint_viz.png)
-						</script>
+				<section data-background="images/joint_viz.png" data-background-size="1000px">
+					<h1 class="grey">Jointplot</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Parallel coordinates](images/pcoord_viz.png)
-						</script>
+				<section data-background="images/pcoord_viz.png" data-background-size="1000px">
+					<h1 class="grey">Parallel Coordinates</h1>
 				</section>
 
 				<section data-markdown data-background="#e29539">
@@ -214,82 +190,52 @@
 						</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Scikit-Learn cheatsheet](images/scikitlearncheatsheet.png)
-						</script>
+				<section data-background="images/scikitlearncheatsheet.png" data-background-size="1250px">
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Cluster comparison](images/clustercompare_DDL.png)
-						</script>
+				<section data-background="images/clustercompare_DDL.png" data-background-size="1000px">
+					<h1 class="grey">Cluster Comparison</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Classifier comparison](images/classifiercompare_DDL.png)
-						</script>
+				<section data-background="images/classifiercompare_DDL.png" data-background-size="1250px">
+					<h1 class="grey">Classifier Comparison</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						![Model family map](images/ml_map_v4.png)
-						</script>
+				<section data-background="images/ml_map_v4.png" data-background-size="1000px">
+					<h1 class="grey">Model families</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						<h1>Visual evaluation</h1>
-						</script>
+				<section data-background="images/classrpt_viz.png" data-background-size="1000px">
+					<h1 class="grey">Classification Heatmap</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![Classification report heatmap](images/classrpt_viz.png)
-						</script>
+				<section data-background="images/roc_auc_compare.png" data-background-size="1000px">
+					<h1 class="grey">ROC-AUC Plots</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![ROC AUC curve](images/roc_auc_compare.png)
-						</script>
+				<section data-background="images/model_error.png" data-background-size="1000px">
+					<h1 class="grey">Prediction Error Plots</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![Regression prediction error plot](images/model_error.png)
-						</script>
+				<section data-background="images/residuals.png" data-background-size="1000px">
+					<h1 class="grey">Residual Plots</h1>
 				</section>
 
-				<section data-markdown>
+				<section data-markdown data-background="#94ba65">
 					<script type="text/template">
-					![Regression residuals plot](images/residuals.png)
-						</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template" data-background="#94ba65">
 						<h1 class="white">Visual tuning</h1>
 						</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![Validation curve](images/validation_curve.png)
-						</script>
+				<section data-background="images/validation_curve.png" data-background-size="1000px">
+					<h1 class="grey">Validation Curves</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![Visual gridsearch](images/validation_heatmap.png)
-						</script>
+				<section data-background="images/validation_heatmap.png" data-background-size="900px">
+					<h1 class="grey">Visual Gridsearch</h1>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![Ruby slippers](images/rubyslippers.jpg)
-						</script>
+				<section data-background="images/rubyslippers.jpg" data-background-size="1000px">
 				</section>
 
 				<section data-markdown>
@@ -310,15 +256,13 @@
 						</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					![The model selection triple](images/model_triple_workflow_color.png)
-						</script>
+				<section data-background="images/model_triple_workflow_color.png" data-background-size="700px">
 				</section>
+
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Making it easier</h1>
+					Making it easier to use the tools
 					```bash
 					pip install yellowbrick
 					```
@@ -327,13 +271,13 @@
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Interactive tools?</h1>
+					Interactive tools?
 						</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Visual Steering?</h1>
+					Visual Steering?
 						</script>
 				</section>
 
