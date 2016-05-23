@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>District Data Labs - PyCon 2016 awesomeness</title>
+		<title>District Data Labs - PyCon 2016</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/ddl.css">
@@ -26,94 +26,114 @@
 			<div class="slides">
 				<section data-markdown>
 					<script type="text/template">
-						Visual Diagnostics for More Informed Machine Learning:
+						<h2>Visual Diagnostics for More Informed Machine Learning:</h2>
 						Within and Beyond Scikit-Learn
 
 						presented by Rebecca Bilbro
 
+						@rebeccabilbro
+
 						May 30, 2016
+					<aside class="notes"> Welcome and thank you for joining me for my talk on visual diagnostics for more informed machine learning
+					</aside>
 					</script>
 				</section>
 
 				<section id="nicetomeetyou">
 					<h1>Nice to meet you</h1>
 					<p class="fragment">My name is Rebecca</p>
+					<aside class="notes"> It's nice to meet you. My name is Rebecca.
+					</aside>
 				</section>
 
 				<section id="credentials">
-					<h1>Credentials:</h1>
-					<p class="fragment">1. 'data scientist'</p>
-					<p class="fragment">2. Federal government</p>
-					<p><span class="fragment">3. PhD</span> <span class="fragment">in...</span> <span class="fragment">not machine learning</span></p>
-					<p class="fragment">4. 2 years of Python</p>
-					<p class="fragment">5. sometimes R</p>
+					<h2>My Background:</h2>
+					<p><span class="fragment">PhD</span> <span class="fragment">in...</span> <span class="fragment">not machine learning</span></p>
+					<p><span class="fragment">data scientist</span> <span class="fragment">aka "research parasite"</span></p>
+					<p class="fragment">Federal government</p>
+					<p class="fragment">2 years of Python</p>
 					<p class="fragment"> :) </p>
+					<aside class="notes"> I wanted to take a moment to go over my background. As for the first question you get asked in the Machine Learning community... yes, I have a PhD. No it's not in Machine Learning.  After many years in academia, I now work as a data scientist. My day job is at the U.S. Department of Commerce. I've been programming in Python for 2 years.
+					</aside>
 				</section>
 
 				<section id="outline">
-					<h1>Where this is going</h1>
-					<p class="fragment">1. Kansas</p>
-				  <p class="fragment">2. Oz</p>
-					<p class="fragment">3. Yellow brick road</p>
-					<p class="fragment">4. Ruby slippers</p>
+					<h2>Where this is going</h2>
+					<p class="fragment">Kansas (how I started)</p>
+				  <p class="fragment">Land of Oz (where I landed)</p>
+					<p class="fragment">Yellow brick road (how to get there)</p>
+					<p class="fragment">Ruby slippers (what you can do)</p>
+					<aside class="notes"> Let me give you a short roadmap of my talk. I'm going to start by talking about (1) how I got into Machine Learning in Python (that's the Kansas part), then (2) I'll talk about how I ended up in Oz, (3) what I think we need to do to help other people get there (Yellow Brick Road), and (4) what you can do to help (Ruby Slippers).
+					</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>True or False?</h1>
-					<p>"Machine learning is hard"</p>
+						<h1 class="grey">Kansas</h1>
+					<aside class="notes"> How many self-taught Machine Learning practitioners out there? Well I'm sure you can relate. My path to ML was circuitous. I studied math, I did research in technical communication, I dabbled in a lot of things. But when I found Python and Machine Learning, it was basically love at first sight. Because...
+					</aside>
 					</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					<h1>Here's how to do it</h1>
-					</script>
+				<section data-background="images/overtherainbow2.jpg" data-background-size="1000px">
+						<h1 class="white">Machine learning is easy</h1>
+					<aside class="notes"> Python makes Machine Learning so easy. Don't believe me?
+					</aside>
+				</section>
+
+				<section id="five steps">
+					<h2>Five Simple Steps</h2>
+					<ol>
+						<li><p class="fragment">Prep data</p></li>
+						<li><p class="fragment">Pick model</p></li>
+						<li><p class="fragment">Fit model</p></li>
+						<li><p class="fragment">Validate model</p></li>
+						<li><p class="fragment">Deploy</p></li>
+					</ol>
+					<aside class="notes"> All you have to do is (1) prep your data, (2) pick a model, (3) instantiate and fit that model, (4) validate it, and (5) deploy it!  You can do all of that in just a few dozen lines of code. Let me show you how I did it:
+					</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-						  1. Prep data
-						  2. Pick model
-						  3. Fit model
-						  4. Validate model
-						  5. Deploy
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-					Prep data
+					<h2>Prep Data</h2>
 						```python
 						import pandas as pd
 						PATH = "data.csv"
 						df = pd.read_csv(PATH)
 						```
-					</script>
+					<aside class="notes"> I'd use Pandas to import my data into a dataframe. I had a vague sense that I should be worried about holding all of it in memory, but tried not to think about that too much.
+					</aside>
+				</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					Pick model
+					<h2>Pick Model</h2>
 						![Ask Stackoverflow](images/stackoverflow.png)
-					</script>
+
+					<aside class="notes"> Pick a model. Luckily for me, it turned out the internet was just FULL of people who know exactly which model is the best.
+					</aside>
+				</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					Fit model
+					<h2>Fit Model</h2>
 						```python
 						from sklearn.linear_model import LogisticRegression
 						model = LogisticRegression()
 						model.fit(X,y)
 						model.predict(X)
 						```
+					<aside class="notes"> Once I picked a model, I'd fit it using something like this. Scikit-Learn is incredible and the API made this ridiculously easy.
+					</aside>
 					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					Validate model
+					<h2>Validate Model</h2>
 						```python
 						from sklearn.metrics import mean_squared_error
 						from sklearn.metrics import r2_score
@@ -123,171 +143,280 @@
 						from sklearn.metrics import classification_report
 						print classification_report(expected, predicted)
 						```
+					<aside class="notes"> Because I'm a nice person, next I'd validate the model using the coefficient of determination for my regressors, or the F1 score for my classifiers. I'd proceed to feel superior if I got anything over .8, and otherwise...
+					</aside>
 					</script>
 				</section>
 
-				<section data-background="images/gridsearch.png" data-background-size="700px">
+				<section data-background="images/blindfold.png" data-background-size="700px">
+						<h2 class="grey">Use GridSearchCV</h2>
+							<aside class="notes"> ...I'd use Gridsearch to help me get my scores up.
+    			  	</aside>
 				</section>
 
 				<section data-background="images/pipelines.png" data-background-size="800px">
+						<h2 class="white">Use Pipelines</h2>
+						<aside class="notes"> Then I'd use pipelines to take all the hacky research code and put it into something good enough for deployment.
+						</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					Done!
-					</script>
+						<h1 class="grey">Done!</h1>
+					<aside class="notes"> That's it!   Except... at night when I'd lie in bed, I couldn't help but think...
+					</aside>
+				</script>
 				</section>
 
-				<section data-background="images/noidea.jpg" data-background-size="700px">
+				<section data-background="images/noidea.jpg" data-background-size="900px">
+					<aside class="notes"> ...that maybe I had no idea what I was actually doing. I'm pretty sure I'm not the only one. Python and high-level libraries like Scikit-Learn have made Machine Learning accessible in a way that it never was before. But informed machine learning is still really hard.
+					</aside>
 				</section>
 
 				<section data-background="images/overtherainbow2.jpg" data-background-size="1000px">
-					<h1 class="white">Birds fly over the rainbow. Why can't I?</h1>
+						<h1 class="white">Informed machine learning is hard</h1>
+						<aside class="notes"> As the tools have become more accessible, the ML population has swelled. The stakes of machine learning have never been higher. Predictive methods are going to increasingly inform how we do all kinds of things, from how we shop, to how we live, how we fight, how we fall in love. Before, you used to have to go to school to do ML. My mentor has studied machine learning for a decade, and so has my boss. But the future of machine learning practitioners looks a lot more like me.
+						</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						<h1 class="grey">Land of Oz</h1>
+					<aside class="notes">	So we need to go to a place where machine learning is informed. Where predictions are valid and robust. Where we know which features to model on. Where the models are appropriate and performant. Where can identify bias and overtraining, and adjust accordingly.
+					</aside>
+					</script>
+				</section>
+
+				<section id="anscombe" data-background="images/anscombe.png" data-background-size="800px">
+					<p><span class="fragment">Anscombe's Quartet</span></p>
+						<aside class="notes"> Recognize this?  It's Anscombe's quartet - four datasets with nearly identical statistical properties but that are no less significantly different. The takeaway is that of all of the analytical tools at our disposal, sometimes our eyes are the most important.
+						</aside>
+				</section>
+
+				<section data-background="images/dorothy.jpg" data-background-size="1000px">
+					<aside class="notes"> So how do we turn on the technicolor for machine learning?
+					</aside>
 				</section>
 
 				<section data-background="images/model_triple_workflow_color.png" data-background-size="700px">
+					<aside class="notes"> When it comes to ML, the most important picture to have is the big picture. Our conversations about models sometimes give us tunnel vision. Whether it's random forests, SVM, Bayes, neural nets, everyone has their favorite! Picking a good model is important, but it's not enough. I propose a broader view. This is a diagram of the workflow I use to do machine learning, and it's the one I use now to teach beginners. As you'll see, visualizations play a critical role in every stage.
+					</aside>
 				</section>
 
+				<section id="three steps">
+					<h2>The Model Selection Triple</h2>
+					<ol>
+						<li><p class="fragment">Feature analysis</p></li>
+						<li><p class="fragment">Model selection</p></li>
+						<li><p class="fragment">Hyperparameter tuning</p></li>
+					</ol>
+					<aside class="notes">My workflow is based on the model selection triple: feature analysis, model selection, and hyperparameter tuning.
+					</aside>
+				</section>
 
-				<section data-background="images/dorothy.jpg" data-background-size="1000px">
-					<h1 class="white">I've a feeling we're not in Kansas anymore.</h1>
+				<section data-background="images/bricks.png" data-background-size="400px" data-background-repeat="repeat">
+						<h1 class="grey">Yellow Brick Road</h1>
+							<aside class="notes"> Many of the tools have already been implemented in Python. But they're kind scattered, so what I've done is cobbled them together into what I like to think of as the "yellow brick road"
+							</aside>
 				</section>
 
 				<section data-markdown data-background="#f2be2c">
 					<script type="text/template">
-						<h1 class="white">Visual feature analysis</h1>
+						<h1 class="white">Visual Feature Analysis</h1>
+							<aside class="notes"> Once I have a new dataset, I begin with feature analysis. This involves descriptive statistics, but also things like...
+							</aside>
 					</script>
 				</section>
 
-
 				<section data-background="images/box_viz.png" data-background-size="1000px">
-					<h1 class="grey">Boxplots</h1>
+					<h2 class="grey">Boxplots</h2>
+					<aside class="notes"> Boxplots, so that I can look at the central tendency of the data, see the distribution, and examine outliers.
+					</aside>
 				</section>
 
 				<section data-background="images/hist_viz.png" data-background-size="1000px">
-					<h1 class="grey">Histograms</h1>
-				</section>
-
-				<section data-background="images/rad_viz.png" data-background-size="1000px">
-					<h1 class="grey">Radviz</h1>
+					<h2 class="grey">Histograms</h2>
+					<aside class="notes"> Histograms, to bin the values of individual features and expose frequencies.
+					</aside>
 				</section>
 
 				<section data-background="images/splom_viz.png" data-background-size="1000px">
-					<h1 class="grey">Splom</h1>
+					<h2 class="grey">Sploms</h2>
+					<aside class="notes"> Scatterplot matrices, to check for pairwise relationships between features. I use these to look for covariance, for relationships that appear to be linear, quadratic, or exponential. I watch for homoscedastic or heteroscedastic behavior to understand how the features are dispersed relative to each other.
+					</aside>
 				</section>
 
-				<section data-background="images/joint_viz.png" data-background-size="1000px">
-					<h1 class="grey">Jointplot</h1>
+				<section data-background="images/joint_viz.png" data-background-size="600px">
+					<h2 class="grey">Jointplots</h2>
+					<aside class="notes"> And often jointplots, when I need to zoom in on a single pair of features.
+					</aside>
+				</section>
+
+				<section data-background="images/rad_viz.png" data-background-size="1000px">
+					<h2 class="grey">Radviz</h2>
+					<aside class="notes"> I use radial visualizations or radviz, to examine the relative pull or predictiveness of certain features within a unit circle. I can also look for class separability.
+					</aside>
 				</section>
 
 				<section data-background="images/pcoord_viz.png" data-background-size="1000px">
-					<h1 class="grey">Parallel Coordinates</h1>
+					<h2 class="grey">Parallel Coordinates</h2>
+					<aside class="notes"> I also find parallel coordinates useful - here my datapoints are plotted as individual line segments and I look for thick chords or braids of lines of the same color that indicate good class separability. My analysis of the features often leads back to the data, where I take another pass through to normalize, scale, extract, or otherwise wrangle the attributes.
+					</aside>
 				</section>
 
 				<section data-markdown data-background="#e29539">
 					<script type="text/template">
-						<h1 class="white">Visual model selection</h1>
+						<h1 class="white">Visual Model Selection</h1>
+						<aside class="notes">After more feature analysis has confirmed I'm on the right track, I identify the category of machine learning models best suited to my features and problem space, often experimenting with fit-predict on multiple models.
+						</aside>
 						</script>
 				</section>
 
-				<section data-background="images/scikitlearncheatsheet.png" data-background-size="1250px">
+				<section data-background="images/scikitlearncheatsheet.png" data-background-size="1000px">
+					<aside class="notes">Many of us begin our journey through Machine Learning with Python using the Scikit-Learn "Choosing the Right Estimator" flowchart.
+					</aside>
 				</section>
 
 				<section data-background="images/clustercompare_DDL.png" data-background-size="1000px">
-					<h1 class="grey">Cluster Comparison</h1>
+					<h2 class="grey">Cluster Comparison</h2>
+					<aside class="notes">There's also the cluster comparison plot, which you can use to compare different clustering algorithms across different datasets...
+					</aside>
 				</section>
 
 				<section data-background="images/classifiercompare_DDL.png" data-background-size="1250px">
-					<h1 class="grey">Classifier Comparison</h1>
+					<h2 class="grey">Classifier Comparison</h2>
+					<aside class="notes">...and the classifier comparison plot, which is a helpful visual comparison of the performance of nine different classifiers across three different toy datasets.
+					</aside>
 				</section>
 
 				<section data-background="images/ml_map_v4.png" data-background-size="1000px">
-					<h1 class="grey">Model families</h1>
+					<h2 class="grey">Model families</h2>
+					<aside class="notes">Lately I've been experimenting with some different ways of visualizing model families. I think it would be useful to be able to treat model selection as a kind of graph theory traversal problem.
+					</aside>
 				</section>
 
 				<section data-background="images/classrpt_viz.png" data-background-size="1000px">
-					<h1 class="grey">Classification Heatmap</h1>
+					<h2 class="grey">Classification Heatmap</h2>
+					<aside class="notes">Model evaluation tools, like this classification heatmap, can also feed into my model selection process...
+					</aside>
 				</section>
 
-				<section data-background="images/roc_auc_compare.png" data-background-size="1000px">
-					<h1 class="grey">ROC-AUC Plots</h1>
+				<section data-background="images/rocauc_viz.png" data-background-size="1000px">
+					<h2 class="grey">ROC-AUC Plots</h2>
+					<aside class="notes">I particularly like using small multiples as a method for comparing the relative appropriateness of different algorithms for a given dataset...
+					</aside>
 				</section>
 
-				<section data-background="images/model_error.png" data-background-size="1000px">
-					<h1 class="grey">Prediction Error Plots</h1>
+				<section data-background="images/regrerror3_viz.png" data-background-size="1000px">
+					<h2 class="grey">Prediction Error Plots</h2>
+					<aside class="notes">And it helps to be able to visually compare the performance of each model...
+					</aside>
 				</section>
 
-				<section data-background="images/residuals.png" data-background-size="1000px">
-					<h1 class="grey">Residual Plots</h1>
+				<section data-background="images/resids3.png" data-background-size="1000px">
+					<h2 class="grey">Residual Plots</h2>
+					<aside class="notes">...so that I can build up my intuition not only about which model performs best, but about why - for instance due to bias or heteroscedasticity.
+					</aside>
 				</section>
 
 				<section data-markdown data-background="#94ba65">
 					<script type="text/template">
 						<h1 class="white">Visual tuning</h1>
-						</script>
+						<aside class="notes">This kind of evaluation of my models flows directly into a reflection on the models I initially selected, in some cases leading me to choose different models. My model evaluations also help me approach tuning...
+						</aside>
+					</script>
 				</section>
 
-				<section data-background="images/validation_curve.png" data-background-size="1000px">
-					<h1 class="grey">Validation Curves</h1>
+				<section data-background="images/blindfold.png" data-background-size="700px">
+							<aside class="notes"> Gridsearch is an incredibly powerful tool. But the problem is that picking the initial search range for the parameters requires some understanding of what parameters are available, what those parameters mean, what impact they can have on a model, and what a reasonable search space might be. Instead of just blundering around...
+    			  	</aside>
 				</section>
 
-				<section data-background="images/validation_heatmap.png" data-background-size="900px">
-					<h1 class="grey">Visual Gridsearch</h1>
+				<section data-background="images/val_curve.png" data-background-size="1000px">
+					<h2 class="grey">Validation Curves</h2>
+					<aside class="notes"> I use validation curves to visualize training and validation scores of a model as I explore different values of a single hyperparameter. I look for that sweet spot with the highest value for both the training and the validation scores. Both scores low = underfit. Training score high + validation score low = overfit.
+					</aside>
+				</section>
+
+				<section data-background="images/viz_gridsearch.png" data-background-size="900px">
+					<h2 class="grey">Visual Gridsearch</h2>
+					<aside class="notes">I also like to use heatmaps to visualize combinations of hyperparameter values that produce the best models. Yes, hyperparameter tuning is still hard. Like I said, some folks spend years in school studying and investigating the complexities of different model parameters. Spinning up that kind of hard-won intuition doesn't happen overnight, but for me visualizations add insight and take the process out of the black box.
+					</aside>
+				</section>
+
+				<section data-markdown data-background="#f2be2c">
+					<script type="text/template">
+						<h1 class="grey">Yellow Brick Road</h1>
+					<aside class="notes">So by following the yellow brick road, you can get to a place where machine learning is more informed. But as great as that is, it's still not enough.
+					</aside>
+					</script>
 				</section>
 
 				<section data-background="images/rubyslippers.jpg" data-background-size="1000px">
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-					We need to facilitate better workflows
-						</script>
-				</section>
-
-				<section id="workflow">
-					1. feature analysis
-					<p class="fragment">2. algorithm selection</p>
-					<p class="fragment">3. parameter tuning</p>
+					<h1 class="white">Ruby Slippers</h1>
+					<aside class="notes">We need to make Oz a place that anyone can get to. A lot of the tools are already implemented in Python - in Scikit-Learn, Matplotlib, Pandas, Bokeh, and Seaborn. But they're spread out across a lot of different places, which makes them harder to use together. We can fix that.
+					</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
 					<h1>Trinket</h1>
-						</script>
+						<aside class="notes">We want to build this in Trinket
+						</aside>
+					</script>
 				</section>
-
-				<section data-background="images/model_triple_workflow_color.png" data-background-size="700px">
-				</section>
-
 
 				<section data-markdown>
 					<script type="text/template">
-					Making it easier to use the tools
+					<h2>Make it easier to use the tools</h2>
 					```bash
 					pip install yellowbrick
 					```
-						</script>
+
+					<aside class="notes"> First of all, everyone knows there's no place like home. Now at least you can pip install yellowbrick now, which wraps the feature analysis and model evaluation tools in a convenient API.
+					</aside>
+					</script>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
-					Interactive tools?
-						</script>
+						<h2>Facilitate better workflows</h2>
+					<ol>
+						<li>Feature analysis</li>
+						<li>Model selection</li>
+						<li>Hyperparameter tuning</li>
+					</ol>
+					<aside class="notes">We can adapt the API model to facilitate the entire workflow through model selection, evaluation, and tuning.
+					</aside>
+				</script>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					Visual Steering?
-						</script>
+				<section data-background="images/model_triple_workflow_color.png" data-background-size="700px">
+					<aside class="notes">We could make Trinket do this. What else should we include?
+					</aside>
+				</section>
+
+				<section data-background="images/ml_map_v4.png" data-background-size="1250px">
+					<h2>Build interactive model selection tools?</h2>
+						<aside class="notes">What does the next version of the "Choosing the Right Estimator" flowchart look like?
+						</aside>
+				</section>
+
+				<section data-background="images/KNN_slider.png" data-background-size="700px">
+					<h2>Develop visual steering techniques?</h2>
+						<aside class="notes"> How can we implement visual steering through interactive hyperparameter tuning?
+						</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
 					Come sprint with me!
 					<h1>Trinket</h1>
-					Rebecca Bilbro
+					Rebecca Bilbro,
 					District Data Labs
-						</script>
+						<aside class="notes"> Look forward to hearing your ideas and hope you'll enjoy Yellowbrick and join our Trinket sprint!
+						</aside>
+					</script>
 				</section>
 			</div>
 		</div>
