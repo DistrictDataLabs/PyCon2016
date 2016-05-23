@@ -42,28 +42,28 @@
 				<section id="nicetomeetyou">
 					<h1>Nice to meet you</h1>
 					<p class="fragment">My name is Rebecca</p>
-					<aside class="notes"> It's nice to meet you. My name is Rebecca.
+					<aside class="notes"> First of all, it's nice to meet you. My name is Rebecca.
 					</aside>
 				</section>
 
 				<section id="credentials">
 					<h2>My Background:</h2>
-					<p><span class="fragment">PhD</span> <span class="fragment">in...</span> <span class="fragment">not machine learning</span></p>
+					<p><span class="fragment">PhD</span> <span class="fragment">...not in machine learning</span></p>
 					<p><span class="fragment">data scientist</span> <span class="fragment">aka "research parasite"</span></p>
-					<p class="fragment">Federal government</p>
+					<p class="fragment">Fed</p>
 					<p class="fragment">2 years of Python</p>
 					<p class="fragment"> :) </p>
-					<aside class="notes"> I wanted to take a moment to go over my background. As for the first question you get asked in the Machine Learning community... yes, I have a PhD. No it's not in Machine Learning.  After many years in academia, I now work as a data scientist. My day job is at the U.S. Department of Commerce. I've been programming in Python for 2 years.
+					<aside class="notes"> I wanted to take a moment to go over my background. As for the first question you get asked in the Machine Learning community... yes, I have a PhD. No it's not in Machine Learning. After many years in academia, I now work as a data scientist in Washington, DC. My day job is at the U.S. Department of Commerce where I build prediction policy models for trade, census, and weather data. I've been programming in Python for 2 years.
 					</aside>
 				</section>
 
 				<section id="outline">
 					<h2>Where this is going</h2>
-					<p class="fragment">Kansas (how I started)</p>
+					<p class="fragment">Kansas (where I started)</p>
 				  <p class="fragment">Land of Oz (where I landed)</p>
-					<p class="fragment">Yellow brick road (how to get there)</p>
-					<p class="fragment">Ruby slippers (what you can do)</p>
-					<aside class="notes"> Let me give you a short roadmap of my talk. I'm going to start by talking about (1) how I got into Machine Learning in Python (that's the Kansas part), then (2) I'll talk about how I ended up in Oz, (3) what I think we need to do to help other people get there (Yellow Brick Road), and (4) what you can do to help (Ruby Slippers).
+					<p class="fragment">Yellow brick road (how I got there)</p>
+					<p class="fragment">Ruby slippers (what's next)</p>
+					<aside class="notes"> I also wanted to give you a short roadmap of my talk. I'm going to start by talking about (1) how I got into Machine Learning in Python, then (2) I'll talk about where I am now, (3) how I got there, and (4) what I think is coming next.
 					</aside>
 				</section>
 
@@ -90,18 +90,18 @@
 						<li><p class="fragment">Validate model</p></li>
 						<li><p class="fragment">Deploy</p></li>
 					</ol>
-					<aside class="notes"> All you have to do is (1) prep your data, (2) pick a model, (3) instantiate and fit that model, (4) validate it, and (5) deploy it!  You can do all of that in just a few dozen lines of code. Let me show you how I did it:
+					<aside class="notes"> All you have to do is (1) prep your data, (2) pick a model, (3) instantiate and fit that model, (4) validate it, and (5) deploy it!  You can do all of that in just a few dozen lines of code. Want to see how I did it?
 					</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Prep Data</h2>
-						```python
+
 						import pandas as pd
 						PATH = "data.csv"
 						df = pd.read_csv(PATH)
-						```
+
 					<aside class="notes"> I'd use Pandas to import my data into a dataframe. I had a vague sense that I should be worried about holding all of it in memory, but tried not to think about that too much.
 					</aside>
 				</script>
@@ -120,12 +120,12 @@
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Fit Model</h2>
-						```python
+
 						from sklearn.linear_model import LogisticRegression
 						model = LogisticRegression()
 						model.fit(X,y)
 						model.predict(X)
-						```
+
 					<aside class="notes"> Once I picked a model, I'd fit it using something like this. Scikit-Learn is incredible and the API made this ridiculously easy.
 					</aside>
 					</script>
@@ -134,15 +134,14 @@
 				<section data-markdown>
 					<script type="text/template">
 					<h2>Validate Model</h2>
-						```python
+
 						from sklearn.metrics import mean_squared_error
 						from sklearn.metrics import r2_score
 						print mse(expected, predicted)
 						print r2_score(expected, predicted)
-						# or
+
 						from sklearn.metrics import classification_report
 						print classification_report(expected, predicted)
-						```
 					<aside class="notes"> Because I'm a nice person, next I'd validate the model using the coefficient of determination for my regressors, or the F1 score for my classifiers. I'd proceed to feel superior if I got anything over .8, and otherwise...
 					</aside>
 					</script>
@@ -175,7 +174,7 @@
 
 				<section data-background="images/overtherainbow2.jpg" data-background-size="1000px">
 						<h1 class="white">Informed machine learning is hard</h1>
-						<aside class="notes"> As the tools have become more accessible, the ML population has swelled. The stakes of machine learning have never been higher. Predictive methods are going to increasingly inform how we do all kinds of things, from how we shop, to how we live, how we fight, how we fall in love. Before, you used to have to go to school to do ML. My mentor has studied machine learning for a decade, and so has my boss. But the future of machine learning practitioners looks a lot more like me.
+						<aside class="notes"> As the tools have become more accessible, the ML population has swelled. And it seems like the appetite for machine learning-based applications has never been bigger. Predictive methods are going to increasingly inform how we do all kinds of things, from how we shop to how we live, from how we fight to how we fall in love. Before, you used to have to go to school to do ML. My mentor has studied machine learning for a decade, and so has my boss. But the future of machine learning practitioners looks a lot more like me.
 						</aside>
 				</section>
 
@@ -194,7 +193,7 @@
 				</section>
 
 				<section data-background="images/dorothy.jpg" data-background-size="1000px">
-					<aside class="notes"> So how do we turn on the technicolor for machine learning?
+					<aside class="notes"> In other words, how do we turn on the technicolor for machine learning?
 					</aside>
 				</section>
 
@@ -360,19 +359,10 @@
 
 				<section data-markdown>
 					<script type="text/template">
-					<h1>Trinket</h1>
-						<aside class="notes">We want to build this in Trinket
-						</aside>
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
 					<h2>Make it easier to use the tools</h2>
 					```bash
 					pip install yellowbrick
 					```
-
 					<aside class="notes"> First of all, everyone knows there's no place like home. Now at least you can pip install yellowbrick now, which wraps the feature analysis and model evaluation tools in a convenient API.
 					</aside>
 					</script>
@@ -386,13 +376,13 @@
 						<li>Model selection</li>
 						<li>Hyperparameter tuning</li>
 					</ol>
-					<aside class="notes">We can adapt the API model to facilitate the entire workflow through model selection, evaluation, and tuning.
+					<aside class="notes">We can adapt the API model to facilitate the entire workflow end-to-end through model selection, evaluation, and tuning.
 					</aside>
 				</script>
 				</section>
 
 				<section data-background="images/model_triple_workflow_color.png" data-background-size="700px">
-					<aside class="notes">We could make Trinket do this. What else should we include?
+					<aside class="notes">I think we could wrap my entire workflow into this API. But what else could we include to make it even better?
 					</aside>
 				</section>
 
@@ -404,7 +394,7 @@
 
 				<section data-background="images/KNN_slider.png" data-background-size="700px">
 					<h2>Develop visual steering techniques?</h2>
-						<aside class="notes"> How can we implement visual steering through interactive hyperparameter tuning?
+						<aside class="notes"> How can we implement visual steering through interactive hyperparameter tuning? I look forward to hearing your ideas ...
 						</aside>
 				</section>
 
@@ -412,9 +402,10 @@
 					<script type="text/template">
 					Come sprint with me!
 					<h1>Trinket</h1>
-					Rebecca Bilbro,
+					Rebecca Bilbro
+
 					District Data Labs
-						<aside class="notes"> Look forward to hearing your ideas and hope you'll enjoy Yellowbrick and join our Trinket sprint!
+						<aside class="notes"> ...and hope you'll enjoy Yellowbrick and join our Trinket sprint!
 						</aside>
 					</script>
 				</section>
