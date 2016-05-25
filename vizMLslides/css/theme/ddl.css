@@ -28,7 +28,7 @@ body {
 	font-size: 36px;
 	font-weight: normal;
   color: #3f4142;
- 	
+
 }
 
 ::selection {
@@ -43,15 +43,38 @@ body {
 /*********************************************
  * DDL
  *********************************************/
-
+ .lightblue {
+ 	background: #9BDAF9;
+ }
 .blue {
-	background: #fff;
+	background: #4CB5F5;
 }
-.deep-blue {
-	background: #fff;
+.lightgrey {
+  background: #fff;
+  color: #666666;
+}
+.grey {
+  color:  #666666;
+}
+.darkgrey {
+  background: #666666;
+  color: #fff;
+}
+.brightblue {
+  background: #fff;
+	color: #2B94E9;
 }
 .white {
 	color: #fff;
+}
+.green {
+  color: #94BA65;
+}
+.orange {
+  color: #E29539;
+}
+.yellow {
+  color: #F2BE2C;
 }
 /*********************************************
  * HEADERS
@@ -72,7 +95,7 @@ body {
    -webkit-hyphens: auto;
          -moz-hyphens: auto;
               hyphens: auto;
-  
+
       word-wrap: normal; }
 
 .reveal h1 {
