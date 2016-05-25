@@ -1,3 +1,3 @@
-# Slides for Visual Diagnostics for More Informed Machine Learning
+# Slides for Natural Language Processing with NLTK and Gensim
 
 To view these slides, simply open `index.html` in your browser of choice!
