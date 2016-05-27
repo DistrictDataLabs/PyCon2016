@@ -1,70 +1,224 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>District Data Labs - PyCon 2016</title>
+	<title>Natural Language Processing with NLTK and Gensim: District Data Labs Tutorial at PyCon 2016</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/ddl.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/ddl.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-markdown>
-					<script type="text/template">
-						<h2>Natural Language Processing with NLTK and Gensim</h2>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
 
-						presented by Benjamin Bengfort
+<body>
+  <!-- Presentation containers -->
+	<div class="reveal">
+		<div class="slides">
 
-						@bbengfot
+    <!-- Introductory Slides -->
 
-						May 29, 2016
-					<aside class="notes">
-            This thing is GOING DOWN!!! WOOT!!!
-					</aside>
-					</script>
-				</section>
+      <!-- title slide -->
+			<section id="title" data-markdown>
+				<script type="text/template">
+          ## Natural Language Processing with NLTK and Gensim
+          May 29, 2016
 
-				<section id="nicetomeetyou">
-					<h1>Nice to meet you</h1>
-					<p class="fragment">My name is Ben</p>
-					<aside class="notes"> First of all, it's acceptable to meet you. My name is Benjamin.
-					</aside>
-				</section>
+          Slides, Notebooks, and Corpus can be found at [pycon.districtdatalabs.com](http://pycon.districtdatalabs.com)
 
-			</div>
-		</div>
+          <aside class="notes">
+            PyCon 2016 tutorial presented on Sunday, May 29 at 9am.
+            Note that code in slides goes _down_!
+          </aside>
+				</script>
+			</section><!-- title slide ends -->
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+      <!-- instructors slide -->
+			<section id="instructors" data-markdown>
+				<script type="text/template">
+          TODO: Add instructor information and wordclouds: possibly use a two column layout
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+          <aside class="notes">
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+          </aside>
+        </script>
+			</section><!-- instructor slide ends -->
+
+    <!-- end introduction -->
+
+    <!-- Part I: An Introduction to NLTK -->
+
+      <!-- part one title slide -->
+      <section id="part-one" data-markdown>
+				<script type="text/template">
+          ## Introduction to NLTK and Gensim
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part one title slide ends -->
+
+    <!-- part one ends -->
+
+    <!-- Part II: Working with Custom Corpora -->
+
+      <!-- part two title slide -->
+      <section id="part-two" data-markdown>
+				<script type="text/template">
+          ## Working with Custom Corpora
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part two title slide ends -->
+
+    <!-- part two ends -->
+
+    <!-- Part III: Natural Language Processing -->
+
+      <!-- part three title slide -->
+      <section id="part-three" data-markdown>
+				<script type="text/template">
+          ## Natural Language Processing
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part three title slide ends -->
+
+    <!-- part three ends -->
+
+    <!-- Part IV: Language Preprocessing with NLTK -->
+
+      <!-- part four title slide -->
+      <section id="part-four" data-markdown>
+				<script type="text/template">
+          ## Language Preprocessing with NLTK
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part four title slide ends -->
+
+    <!-- part four ends -->
+
+    <!-- Part V: Textual Machine Learning -->
+
+      <!-- part five title slide -->
+      <section id="part-five" data-markdown>
+				<script type="text/template">
+          ## Textual Machine Learning
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part five title slide ends -->
+
+    <!-- part five ends -->
+
+    <!-- Part VI: Building Text Classifiers -->
+
+      <!-- part six title slide -->
+      <section id="part-six" data-markdown>
+				<script type="text/template">
+          ## Building Text Classifiers
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part six title slide ends -->
+
+    <!-- part six ends -->
+
+    <!-- Part VII: Building Topic Models -->
+
+      <!-- part seven title slide -->
+      <section id="part-seven" data-markdown>
+				<script type="text/template">
+          ## Building Topic Models
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- part seven title slide ends -->
+
+    <!-- part seven ends -->
+
+    <!-- Concluding Remarks -->
+
+      <!-- conclusion slide -->
+      <section id="conclusion" data-markdown>
+				<script type="text/template">
+          ## Concluding Remarks
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- conclusion slide ends -->
+
+      <!-- sprints slide -->
+      <section id="sprints" data-markdown>
+				<script type="text/template">
+          ## Sprints
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- sprints slide ends -->
+
+      <!-- questions slide -->
+      <section id="questions" data-markdown>
+				<script type="text/template">
+          ## Questions?
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- questions slide ends -->
+
+    <!-- part eight ends -->
+
+
+		</div><!-- slides ends -->
+	</div><!-- reveal ends -->
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
 </html>
