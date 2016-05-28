@@ -28,6 +28,7 @@
 		<div class="slides">
 
     <!-- Introductory Slides -->
+    <section>
 
       <!-- title slide -->
 			<section id="title" data-markdown>
@@ -55,9 +56,11 @@
         </script>
 			</section><!-- instructor slide ends -->
 
+    </section>
     <!-- end introduction -->
 
     <!-- Part I: An Introduction to NLTK -->
+    <section>
 
       <!-- part one title slide -->
       <section id="part-one" data-markdown>
@@ -70,9 +73,176 @@
 				</script>
 			</section><!-- part one title slide ends -->
 
+      <!-- nltk-nutshell slide -->
+      <section id="nltk-nutshell" data-markdown>
+        <script type="text/template">
+          ### What is NLTK?
+
+          - Python interface to over 50 corpora and lexical resources
+          - Focus on machine learning applied to specific domains
+          - Numpy and SciPy under the hood
+          - Free and open source
+          - Fast and formal
+          - Batteries included
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- nltk-nutshell slide ends -->
+
+      <!-- what-is-nltk slide -->
+      <section id="what-is-nltk" data-markdown>
+        <script type="text/template">
+          ### What is NLTK?
+
+          Suite of libraries for a variety of academic text processing tasks:
+
+          - tokenization, stemming, tagging,
+          - chunking, parsing, classification,
+          - language modeling, logical semantics
+
+          Pedagogical resources for teaching NLP theory in Python &hellip;
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- what-is-nltk slide ends -->
+
+      <!-- nltk-authors slide -->
+      <section id="nltk-authors" data-markdown>
+        <script type="text/template">
+          ### Who Wrote NLTK?
+
+          ![NLTK Authors](images/nltk-authors.png)
+
+          <aside class="notes">
+            TODO: Add author images and bios as separate entities.
+          </aside>
+        </script>
+      </section><!-- nltk-authors slide ends -->
+
+      <!-- batteries-included slide -->
+      <section id="batteries-included" data-markdown>
+        <script type="text/template">
+          ### Batteries Included
+
+          ![Batteries Included](images/batteries-included.png)
+
+          NLTK = Corpora + Algorithms
+
+          Ready for Research!
+
+          <aside class="notes">
+            TODO: Refactor and reformat images
+          </aside>
+        </script>
+      </section><!-- batteries-included slide ends -->
+
+      <!-- nltk-is-not slide -->
+      <section id="nltk-is-not" data-markdown>
+        <script type="text/template">
+          ### What is NLTK not?
+
+          - Production ready out of the box*
+          - Lightweight
+          - Generally applicable
+          - Magic
+
+          <small><sup>*</sup>There are actually a few things that are production ready right out of the box.</small>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- nltk-is-not slide ends -->
+
+      <!-- nltk-the-good slide -->
+      <section id="nltk-the-good" data-markdown>
+        <script type="text/template">
+          ### The Good
+
+          - Preprocessing
+              - segmentation, tokenization, PoS tagging
+          - Word level processing
+              - WordNet, Lemmatization, Stemming, NGram
+          - Utilities
+              - Tree, FreqDist, ConditionalFreqDist
+              - Streaming CorpusReader objects
+          - Classification
+              - Maximum Entropy, Naive Bayes, Decision Tree
+              - Chunking, Named Entity Recognition
+          - Parsers Galore!
+          - Languages Galore!
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- nltk-the-good slide ends -->
+
+      <!-- nltk-the-bad slide -->
+      <section id="nltk-the-bad" data-markdown>
+        <script type="text/template">
+          ### The Bad
+
+          - Syntactic Parsing
+              - No included grammar (not a black box)
+          - Feature/Dependency Parsing
+              - No included feature grammar
+          - The `sem` package
+              - Toy only (lambda-calculus &amp; first order logic)
+          - Lots of extra stuff
+              - papers, chat programs, alignments, etc.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- nltk-the-bad slide ends -->
+
+      <!-- other-libraries slide -->
+      <section id="other-libraries" data-markdown>
+        <script type="text/template">
+          ### Other Python NLP Libraries
+
+          - [TextBlob](http://textblob.readthedocs.org/en/dev/)
+          - [SpaCy](https://spacy.io/)
+          - [Scikit-Learn](http://scikit-learn.org/stable/)
+          - [Pattern](http://www.clips.ua.ac.be/pattern)
+          - [gensim](http://radimrehurek.com/gensim/)
+          - [MITIE](https://github.com/mit-nlp/MITIE)
+          - [guess_language](https://bitbucket.org/spirit/guess_language)
+          - [Python wrapper for Stanford CoreNLP](https://github.com/brendano/stanford_corenlp_pywrapper)
+          - [Python wrapper for Berkeley Parser](https://github.com/emcnany/berkeleyinterface)
+          - [readability-lxml](https://pypi.python.org/pypi/readability-lxml)
+          - [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/)
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- other-libraries slide ends -->
+
+      <!-- production-grade-nlp slide -->
+      <section id="production-grade-nlp" data-markdown>
+        <script type="text/template">
+          ### Production Grade NLP
+
+          ![Production Grade NLP](images/production-grade-nlp.png)
+
+          <aside class="notes">
+            TODO: Refactor images to stand on their own.
+          </aside>
+        </script>
+      </section><!-- production-grade-nlp slide ends -->
+
+    </section>
     <!-- part one ends -->
 
     <!-- Part II: Working with Custom Corpora -->
+    <section>
 
       <!-- part two title slide -->
       <section id="part-two" data-markdown>
@@ -85,9 +255,66 @@
 				</script>
 			</section><!-- part two title slide ends -->
 
+      <!-- data-science-pipeline slide -->
+      <section id="data-science-pipeline" data-markdown>
+        <script type="text/template">
+          ### Data Science Pipeline
+
+          <aside class="notes">
+            TODO: Add data science pipeline image
+          </aside>
+        </script>
+      </section><!-- end data-science-pipeline slide -->
+
+      <!-- data-product-pipeline slide -->
+      <section id="data-product-pipeline" data-markdown>
+        <script type="text/template">
+          ### Data Product Pipeline
+
+          <aside class="notes">
+            TODO: Add data product pipeline image
+          </aside>
+        </script>
+      </section><!-- end data-product-pipeline slide -->
+
+      <!-- baleen slide -->
+      <section id="baleen" data-markdown>
+        <script type="text/template">
+          ### Baleen
+
+          <aside class="notes">
+            TODO: Add Baleen information
+          </aside>
+        </script>
+      </section><!-- end baleen slide -->
+
+      <!-- baleen-dashboard slide -->
+      <section id="baleen-dashboard" data-markdown>
+        <script type="text/template">
+          ### Baleen Dashboard
+
+          <aside class="notes">
+            TODO: Add Baleen Dashboard Screenshot
+          </aside>
+        </script>
+      </section><!-- baleen-dashboard slide ends -->
+
+      <!-- corpus-reader slide -->
+      <section id="corpus-reader" data-markdown>
+        <script type="text/template">
+          ### CorpusReader Objects
+
+          <aside class="notes">
+            TODO: Add CorpusReader code
+          </aside>
+        </script>
+      </section><!-- corpus-reader slide ends -->
+
+    </section>
     <!-- part two ends -->
 
     <!-- Part III: Natural Language Processing -->
+    <section>
 
       <!-- part three title slide -->
       <section id="part-three" data-markdown>
@@ -100,9 +327,333 @@
 				</script>
 			</section><!-- part three title slide ends -->
 
+      <!-- language slide -->
+      <section id="language" data-markdown>
+        <script type="text/template">
+          <big>What is Language?</big><br />
+          <small>Or, why should we analyze it?</small>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- langauge slide ends -->
+
+      <!-- crab slide -->
+      <section id="crab" data-markdown>
+        <script type="text/template">
+          <big>Crab</big>
+
+          <small>What does this mean?</small>
+
+          <aside class="notes">
+            TODO: Bigger "Crab" symbol
+          </aside>
+        </script>
+      </section><!-- crab slide ends -->
+
+      <!-- crab-representation slide -->
+      <section id="crab-representation" data-markdown>
+        <script type="text/template">
+          ![Crab symbol](images/crab-representation.png)
+
+          <small>Is the symbol representative of its meaning?</small>
+
+          <aside class="notes">
+            TODO: Refactor Images on this slide
+          </aside>
+        </script>
+      </section><!-- crab-representation slide ends -->
+
+      <!-- crab-mental-lexicon slide -->
+      <section id="crab-mental-lexicon" data-markdown>
+        <script type="text/template">
+          ![Crab Mental Lexicon](images/crab-mental-lexicon.png)
+
+          <small>Or is it just a mapping in a mental lexicon?</small>
+
+          <aside class="notes">
+            TODO: Refactor Images on this slide
+          </aside>
+        </script>
+      </section><!-- crab-mental-lexicon slide ends -->
+
+      <!-- arbitrary-crab slide -->
+      <section id="arbitrary-crab" data-markdown>
+        <script type="text/template">
+          ![Arbitrary Crab Sybmol](images/arbitrary-crab.png)
+
+          <small>These symbols are arbitrary</small>
+
+          <aside class="notes">
+            TODO: Refactor Images on this slide
+          </aside>
+        </script>
+      </section><!-- arbitrary-crab slide ends -->
+
+      <!-- saussurian-linguistics slide -->
+      <section id="saussurian-linguistics" data-markdown>
+        <script type="text/template">
+          ![Saussurian Linguistics](images/saussurian-linguistics.png)
+
+          <aside class="notes">
+            TODO: Refactor Images on this slide
+
+            Ferdinand de Saussure was a Swiss linguist and semiotician whose ideas laid a foundation for many significant developments both in linguistics and semiology in the 20th century.
+            "discovery of the internal structure of the linguistic sign differentiated the sign both from mere acoustic 'things' ... and from mental processes", and that in this development "new roads were thereby opened not only for linguistics, but also, in the future, for the theory of literature.
+          </aside>
+        </script>
+      </section><!-- saussurian-linguistics slide ends -->
+
+      <!-- evolution-of-linguistics slide -->
+      <section id="evolution-of-linguistics" data-markdown>
+        <script type="text/template">
+          The science that has been developed around the facts of language passed through three
+          stages before finding its true and unique object. First something called
+          &ldquo;<em>grammar</em>&rdquo; was studied.
+
+          This study, initiated by the Greeks and continued mainly by the French, was based on
+          logic. It lacked a scientific approach and was detached from language itself.
+
+          Its only aim was to give <em>rules</em> for distinguishing between correct and incorrect
+          forms; it was a normative discipline, far removed from actual observation, and its
+          scope was limited.
+
+          &mdash; Ferdinand de Saussure
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- evolution-of-linguistics slide ends -->
+
+      <!-- formal-vs-natural slide -->
+      <section id="formal-vs-natural" data-markdown>
+        <script type="text/template">
+          ### Formal vs. Natural Languages
+
+
+          #### Formal Languages
+
+          - Strict, unchanging rules defined by grammars and parsed by regular expressions
+          - Generally application specific (chemistry, math)
+          - Literal: exactly what is said is meant.
+          - No ambiguity
+          - Parsable by regular expressions
+          - Inflexible: no new terms or meaning.
+
+
+
+          #### Natural Languages
+
+          - Flexible, evolving language that occurs naturally in human communication
+          - Unspecific and used in many domains and applications
+          - Redundant and verbose in order to make up for ambiguity
+          - Expressive
+          - Difficult to parse
+          - Very flexible even in narrow contexts
+
+
+          <aside class="notes">
+            TODO: Sort out the two column comparison
+          </aside>
+        </script>
+      </section><!-- formal-vs-natural slide ends -->
+
+      <!-- cs-formal slide -->
+      <section id="cs-formal" data-markdown>
+        <script type="text/template">
+          > Computer science has traditionally focused on formal languages.
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- cs-formal slide ends -->
+
+      <!-- formal-language-parsing slide -->
+      <section id="formal-language-parsing" data-markdown>
+        <script type="text/template">
+          ![Interpreter of Formal Language](images/formal-language-parsing.png)
+
+          <small>Who has written a compiler or an interpreter?</small>
+          <aside class="notes">
+            TODO: fix images on this slide.
+          </aside>
+        </script>
+      </section><!-- formal-language-parsing slide ends -->
+
+      <!-- hare-cut slide -->
+      <section id="hare-cut" data-markdown>
+        <script type="text/template">
+          ![Syntax Errors are your Friend!](images/hare-cut.png)
+
+          <small>Syntax Errors are your friend! [http://bbc.in/23pSPRq](http://bbc.in/23pSPRq)</small>
+          <aside class="notes">
+            TODO: get actual image instead of screenshot
+          </aside>
+        </script>
+      </section><!-- hare-cut slide ends -->
+
+      <!-- ambiguity slide -->
+      <section id="ambiguity" data-markdown>
+        <script type="text/template">
+          > However, ambiguity is required for understanding when communicating
+          > between people with diverse experience.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- ambiguity slide ends -->
+
+      <!-- apostrotastrophe slide -->
+      <section id="apostrotastrophe" data-markdown>
+        <script type="text/template">
+          ![Miscommunication](images/apostrotastrophe.png)
+
+          <small>Most of the time. [http://bit.ly/1XlOtHv](http://bit.ly/1XlOtHv)</small>
+          <aside class="notes">
+            TODO: replace with actual image and not screenshot
+          </aside>
+        </script>
+      </section><!-- apostrotastrophe slide ends -->
+
+      <!-- ml-for-nlp slide -->
+      <section id="ml-for-nlp" data-markdown>
+        <script type="text/template">
+          > Natural Language Processing requires flexibility, which generally
+          > comes from machine learning.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- ml-for-nlp slide ends -->
+
+      <!-- language-models slide -->
+      <section id="language-models" data-markdown>
+        <script type="text/template">
+          ![Language Models](images/language-models.png)
+
+          <small>Language models are used for flexibility</small>
+          <aside class="notes">
+            TODO: Replace image with actual image not screenshot
+          </aside>
+        </script>
+      </section><!-- language-models ends -->
+
+      <!-- predictable-language slide -->
+      <section id="predictable-language" data-markdown>
+        <script type="text/template">
+          ### Intuition: Language is Predictable (if flexible)
+
+          &ldquo;There was a ton of traffic on the beltway so I was ________.&rdquo;
+
+          &ldquo;At the beach we watched the ________.&rdquo;
+
+          &ldquo;Watch out for that ________!&rdquo;
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- predictable-language ends -->
+
+      <!-- token-relationships slide -->
+      <section id="token-relationships" data-markdown>
+        <script type="text/template">
+          ![Token Relationships](images/token-relationships.png)
+
+          <small>Language models predict relationships between tokens.</small>
+          <aside class="notes">
+            TODO: Replace screenshot with actual image
+          </aside>
+        </script>
+      </section><!-- token-relationships slide ends -->
+
+      <!-- symbol-meaning slide -->
+      <section id="symbol-meaning" data-markdown>
+        <script type="text/template">
+          ![Still not Meaning](images/symbol-meaning.png)
+
+          <small>But they can’t understand meaning (yet)</small>
+          <aside class="notes">
+            TODO: Replace screenshot with actual image
+          </aside>
+        </script>
+      </section><!-- symbol-meaning slide ends -->
+
+      <!-- tokens-not-words slide -->
+      <section id="tokens-not-words" data-markdown>
+        <script type="text/template">
+          ![Tokens Not Words](images/tokens-not-words.png)
+
+          <aside class="notes">
+            TODO: Replace screenshot with actual image
+          </aside>
+        </script>
+      </section><!-- tokens-not-words slide ends -->
+
+      <!-- connectionist-vs-symbolic slide -->
+      <section id="connectionist-vs-symbolic" data-markdown>
+        <script type="text/template">
+          ### Connectionist vs Symbolic Models
+
+          ![Connectionist vs. Symbolic](images/connectionist-vs-symbolic.png)
+
+          <aside class="notes">
+            TODO: Replace screenshot with actual image
+          </aside>
+        </script>
+      </section><!-- connectionist-vs-symbolic slide ends -->
+
+      <!-- state-of-the-art slide -->
+      <section id="state-of-the-art" data-markdown>
+        <script type="text/template">
+          ### The State of the Art
+
+          - Academic design for use alongside intelligent agents (AI discipline)
+          - Relies on formal models or representations of knowledge &amp; language
+          - Models are adapted and augmented through probabilistic methods and machine learning.
+          - A small number of algorithms comprise the standard framework.
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- state-of-the-art slide ends -->
+
+      <!-- traditional-nlp slide -->
+      <section id="traditional-nlp" data-markdown>
+        <script type="text/template">
+          ### Traditional NLP Applications
+
+          - Summarization
+          - Reference Resolution
+          - Machine Translation
+          - Language Generation
+          - Language Understanding
+          - Document Classification
+          - Author Identification
+          - Part of Speech Tagging
+          - Question Answering
+          - Information Extraction
+          - Information Retrieval
+          - Speech Recognition
+          - Sense Disambiguation
+          - Topic Recognition
+          - Relationship Detection
+          - Named Entity Recognition
+          <aside class="notes">
+            TODO: Make two column
+          </aside>
+        </script>
+      </section><!-- traditional-nlp slide ends -->
+
+    </section>
     <!-- part three ends -->
 
     <!-- Part IV: Language Preprocessing with NLTK -->
+    <section>
 
       <!-- part four title slide -->
       <section id="part-four" data-markdown>
@@ -115,9 +666,11 @@
 				</script>
 			</section><!-- part four title slide ends -->
 
+    </section>
     <!-- part four ends -->
 
     <!-- Part V: Textual Machine Learning -->
+    <section>
 
       <!-- part five title slide -->
       <section id="part-five" data-markdown>
@@ -130,9 +683,11 @@
 				</script>
 			</section><!-- part five title slide ends -->
 
+    </section>
     <!-- part five ends -->
 
     <!-- Part VI: Building Text Classifiers -->
+    <section>
 
       <!-- part six title slide -->
       <section id="part-six" data-markdown>
@@ -145,9 +700,11 @@
 				</script>
 			</section><!-- part six title slide ends -->
 
+    </section>
     <!-- part six ends -->
 
     <!-- Part VII: Building Topic Models -->
+    <section>
 
       <!-- part seven title slide -->
       <section id="part-seven" data-markdown>
@@ -160,9 +717,11 @@
 				</script>
 			</section><!-- part seven title slide ends -->
 
+    </section>
     <!-- part seven ends -->
 
     <!-- Concluding Remarks -->
+    <section>
 
       <!-- conclusion slide -->
       <section id="conclusion" data-markdown>
@@ -197,7 +756,8 @@
 				</script>
 			</section><!-- questions slide ends -->
 
-    <!-- part eight ends -->
+    </section>
+    <!-- concluding remarks ends -->
 
 
 		</div><!-- slides ends -->
