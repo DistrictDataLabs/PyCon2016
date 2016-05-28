@@ -716,7 +716,6 @@
         </script>
       </section><!-- discourse slide ends -->
 
-
       <!-- morphology slide -->
       <section id="morphology" data-markdown>
 				<script type="text/template">
@@ -1035,6 +1034,304 @@
           </aside>
 				</script>
 			</section><!-- part five title slide ends -->
+
+      <!-- instances slide -->
+      <section id="instances" data-markdown>
+        <script type="text/template">
+          Machine learning uses <em>instances</em> (examples) of data to fit a parameterized model which is used to make predictions concerning new instances.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- instances slide ends -->
+
+      <!-- what-are-instances slide -->
+      <section id="what-are-instances" data-markdown>
+        <script type="text/template">
+          In text analysis, what are the instances?
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- what-are-instances slide ends -->
+
+      <!-- instances-are-documents slide -->
+      <section id="instances-are-documents" data-markdown>
+        <script type="text/template">
+          Instances = Documents
+
+          (no matter their size)
+
+          <img src="images/book.png" alt="Book" style="width: 25%; border: none;"/>
+          <img src="images/twitter.png" alt="Twitter" style="width: 25%; border: none;"/>
+          <img src="images/gmail.png" alt="Gmail" style="width: 25%; border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- instances-are-documents slide ends -->
+
+      <!-- document-collection slide -->
+      <section id="document-collection" data-markdown>
+        <script type="text/template">
+          <img src="images/bookcollection.png" alt="Book Collection" style="border: none;"/>
+
+          A corpus is a collection of documents to learn about.
+
+          (labeled or unlabeled)
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- document-collection slide ends -->
+
+      <!-- features slide -->
+      <section id="features" data-markdown>
+        <script type="text/template">
+          Features describe instances in a way that machines can learn on by putting them into feature space.
+
+          <img src="images/feature-space.png" alt="Feature Space" style="width: 25%; border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- features slide ends -->
+
+      <!-- document-features slide -->
+      <section id="document-features" data-markdown>
+        <script type="text/template">
+          ### Document Features
+
+          <img src="images/document-features.png" alt="Document Features" style="float:right; border: none; width: 20%;"/>
+
+          #### Document level features
+          - Metadata: title, author
+          - Paragraphs
+          - Sentence construction
+
+          #### Word level features
+          - Vocabulary
+          - Form (capitalization)
+          - Frequency
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- document-features slide ends -->
+
+      <!-- vector-encoding slide -->
+      <section id="vector-encoding" data-markdown>
+        <script type="text/template">
+          ### Vector Encoding
+
+          - Basic representation of documents: a vector whose length is equal to the vocabulary of the entire corpus.
+          - Word positions in the vector are based on lexicographic order.
+
+          <img src="images/vector-encoding.png" alt="Vector Encoding" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- vector-encoding slide ends -->
+
+      <!-- token-frequency slide -->
+      <section id="token-frequency" data-markdown>
+        <script type="text/template">
+          ### Bag of Words: Token Frequency
+
+          - One of the simplest models: compute the frequency of words in the document and use those numbers as the vector encoding.
+
+          <img src="images/token-frequency.png" alt="Token Frequency" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- token-frequency slide ends -->
+
+      <!-- one-hot-encoding slide -->
+      <section id="one-hot-encoding" data-markdown>
+        <script type="text/template">
+          ### One Hot Encoding
+
+          - The feature vector encodes the vocabulary of the document.
+          - All words are equally distant, so must reduce word forms.
+          - Usually used for artificial neural network models.
+
+          <img src="images/one-hot-encoding.png" alt="One Hot Encoding" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- one-hot-encoding slide ends -->
+
+      <!-- tf-idf-encoding slide -->
+      <section id="tf-idf-encoding" data-markdown>
+        <script type="text/template">
+          ### TF-IDF Encoding
+
+          - Highlight terms that are very relevant to a document relative to the rest of the corpus by computing the term frequency times the inverse document frequency of the term.
+
+          <img src="images/tf-idf-encoding.png" alt="TF IDF Encoding" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- tf-idf-encoding slide ends -->
+
+      <!-- distributed-representation slide -->
+      <section id="distributed-representation" data-markdown>
+        <script type="text/template">
+          ### Distributed Representation
+
+          - Dense representations along a continuous scale that can be used to encode similarity within vector space.
+
+          <img src="images/distributed-representation.png" alt="Distributed Representation" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- distributed-representation slide ends -->
+
+      <!-- distributed-representation-example slide -->
+      <section id="distributed-representation-example" data-markdown>
+        <script type="text/template">
+          ### Distributed Representation with gensim.models.Doc2Vec
+
+          ```python
+          >>> import gensim
+          >>> documents = gensim.models.doc2vec.TaggedLineDocument("documents.txt")
+          >>> model = gensim.models.doc2vec.Doc2Vec(documents, size=7, min_count=0)
+          >>> model.docvecs[0]
+
+          array([-0.0225403 , -0.0212964 ,  0.02708783,  0.0049877 ,  0.04926294,
+                 -0.03268785, -0.03209411], dtype=float32)
+          ```
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- distributed-representation-example slide ends -->
+
+      <!-- vector-encoding-pros-and-cons slide -->
+      <section id="vector-encoding-pros-and-cons" data-markdown>
+        <script type="text/template">
+          ### Pros and Cons of Vector Encoding
+
+          #### Pros
+          - Machine learning requires a vector anyway.
+          - Can embed complex representations like TF-IDF into the vector form.
+          - Drives towards token-concept mapping without rules.
+
+          #### Cons
+          - The vectors have lots of columns (high dimension)
+          - Word order, grammar, and other structural features are natively lost.
+          - Difficult to add knowledge to learning process.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- vector-encoding-pros-and-cons slide ends -->
+
+      <!-- much-work slide -->
+      <section id="much-work" data-markdown>
+        <script type="text/template">
+          In the end, much of the work for language aware applications comes from domain specific feature analysis; not just simple vectorization.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- much-work slide ends -->
+
+      <!-- classification slide -->
+      <section id="classification" data-markdown>
+        <script type="text/template">
+          ### Classification
+
+          - Classification
+            - Supervised ML
+            - Requires pre-labeled corpus of documents
+            - Sentiment Analysis
+            - Models:
+              - Naive Bayes
+              - Maximum Entropy
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- classification slide ends -->
+
+      <!-- clustering slide -->
+      <section id="clustering" data-markdown>
+        <script type="text/template">
+          ### Clustering
+
+          - Clustering
+            - Unsupervised ML
+            - Groups similar documents together
+            - Topic Modeling
+            - Models:
+              - LDA
+              - NNMF
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- clustering slide ends -->
+
+      <!-- classification-pipeline slide-->
+      <section id="classification-pipeline" data-markdown>
+        <script type="text/template">
+          ### Classification Pipeline
+
+          <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- classification-pipeline slide ends -->
+
+      <!-- topic-modeling-pipeline slide-->
+      <section id="topic-modeling-pipeline" data-markdown>
+        <script type="text/template">
+          ### Topic Modeling Pipeline
+
+          <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- topic-modeling-pipeline slide ends -->
+
+      <!-- designing-the-problem slide-->
+      <section id="designing-the-problem" data-markdown>
+        <script type="text/template">
+          These two fundamental techniques are the basis of most NLP.
+
+          It’s all about designing the problem correctly.
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- designing-the-problem slide ends -->
 
     </section>
     <!-- part five ends -->
