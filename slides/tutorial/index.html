@@ -844,17 +844,180 @@
 				<script type="text/template">
           ### Tokenization &amp; Tagging
 
-          - Examples are easier to create than rules.
-          - Rules and logic miss frequency and language dynamics
-          - More data is better for machine learning, relevance is in the long tail
-          - Knowledge engineering is not scalable
-          - Computational linguistics methodologies are stochastic
+          ```python
+          text = u"Medical personnel returning to New York" #...
+
+          for sent in nltk.sent_tokenize(text):
+            print(sent)
+          for sent in nltk.sent_tokenize(text):
+            print list(nltk.wordpunct_tokenize(sent))
+          for sent in nltk.sent_tokenize(text):
+            print list(nltk.pos_tag(nltk.word_tokenize(sent)))
+          ```
 
           <aside class="notes">
 
           </aside>
 				</script>
 			</section><!-- tokenization-tagging slide ends -->
+
+			<!-- stemming-lemmatization slide -->
+      <section id="stemming-lemmatization" data-markdown>
+				<script type="text/template">
+					### Stemming &amp; Lemmatization
+
+					Use stemming and lemmatization to normalize words across a corpora.
+
+					Stemming = chop off affixes to get the root stem of the word:
+					* running &#8594; run
+					* flowers &#8594; flower
+					* geese   &#8594; geese
+
+					Lemmatization = look up word form in a lexicon to get canonical lemma:
+					* women   &#8594; woman
+					* foxes   &#8594; fox
+					* sheep   &#8594; sheep
+
+					<aside class="notes">
+
+					</aside>
+				</script>
+			</section><!-- stemming-lemmatization slide ends -->
+
+			<!-- stemming-lemmatization-2 slide -->
+      <section id="stemming-lemmatization-2" data-markdown>
+				<script type="text/template">
+          ### Stemming &amp; Lemmatization
+
+          - Stemmers
+            - Lancaster (English, newer and aggressive)
+              - class nltk.stem.lancaster.LancasterStemmer [[source]](http://www.nltk.org/_modules/nltk/stem/lancaster.html#LancasterStemmer)
+            - Porter (English, original stemmer)
+              - class nltk.stem.porter.PorterStemmer [[source]](http://www.nltk.org/_modules/nltk/stem/porter.html#PorterStemmer)
+            - Snowball (Many langauges, newest)
+              - class nltk.stem.snowball.EnglishStemmer(ignore_stopwords=False) [[source]](http://www.nltk.org/_modules/nltk/stem/snowball.html#EnglishStemmer)
+              - And several others for other languages
+          - Lemmatizer
+            - WordNet lexicon
+              - class nltk.stem.wordnet.WordNetLemmatizer [[source]](http://www.nltk.org/_modules/nltk/stem/wordnet.html#WordNetLemmatizer)
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- stemming-lemmatization-2 slide ends -->
+
+			<!-- stemming-lemmatization-3 slide -->
+      <section id="stemming-lemmatization-3" data-markdown>
+				<script type="text/template">
+          ### Stemming &amp; Lemmatization
+
+          ```python
+          from nltk.stem.snowball import SnowballStemmer
+          from nltk.stem.lancaster import LancasterStemmer
+          from nltk.stem.porter import PorterStemmer
+
+          text = list(nltk.word_tokenize("The women running in the fog passed bunnies working as computer scientists."))
+
+          snowball = SnowballStemmer('english')
+          lancaster = LancasterStemmer()
+          porter = PorterStemmer()
+          ```
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- stemming-lemmatization-3 slide ends -->
+
+			<!-- stemming-lemmatization-4 slide -->
+			<section id="stemming-lemmatization-4" data-markdown>
+				<script type="text/template">
+          ### Stemming &amp; Lemmatization
+
+          ```python
+          from nltk.stem.wordnet import WordNetLemmatizer
+
+          lemmatizer = WordNetLemmatizer()
+          lemmas = [lemmatizer.lemmatize(t) for t in text]
+          print " ".join(lemmas)
+          ```
+
+          <aside class="notes">
+
+					</aside>
+				</script>
+			</section><!-- stemming-lemmatization-4 slide ends -->
+
+			<!-- stemming-lemmatization-5 slide -->
+			<section id="stemming-lemmatization-5" data-markdown>
+				<script type="text/template">
+          ### Stemming &amp; Lemmatization
+          Typical normalization of text for use as features in machine learning models looks something like this:
+
+          ```python
+          import string
+          ## Module constants
+          lemmatizer  = WordNetLemmatizer()
+          stopwords   = set(nltk.corpus.stopwords.words('english'))
+          punctuation = string.punctuation
+
+          def normalize(text):
+            for token in nltk.word_tokenize(text):
+              token = token.lower()
+              token = lemmatizer.lemmatize(token)
+              if token not in stopwords and token not in punctuation:
+                yield token
+
+          print(list(normalize("The eagle flies at midnight.")))
+          ```
+
+          <aside class="notes">
+
+					</aside>
+				</script>
+			</section><!-- stemming-lemmatization-5 slide ends -->
+
+			<!-- parsing slide -->
+			<section id="parsing" data-markdown>
+				<script type="text/template">
+          ### Parsing
+
+          ```python
+          import nltk
+
+          grammar = nltk.grammar.CFG.fromstring("""
+          S -> NP
+          NP -> N N | ADJP NP | DET N
+          ADJP -> ADJ NP
+          DET -> 'an'
+          N -> 'airplane'
+          """)
+
+          parser = nltk.parse.ChartParser(grammar)
+          p = list(parser.parse(nltk.word_tokenize("an airplane")))
+
+          for a in p:
+            a.pprint()
+            # p[0].draw()
+          ```
+
+          <aside class="notes">
+
+					</aside>
+				</script>
+			</section><!-- parsing slide ends -->
+
+			<!-- named-entity-recognition slide -->
+			<section id="named-entity-recognition" data-markdown>
+				<script type="text/template">
+          ### Named Entity Recognition
+
+          <aside class="notes">
+
+					</aside>
+				</script>
+			</section><!-- named-entity-recognition slide ends -->
 
     </section>
     <!-- part four ends -->
