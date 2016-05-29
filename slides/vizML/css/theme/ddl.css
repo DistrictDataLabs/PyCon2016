@@ -43,6 +43,13 @@ body {
 /*********************************************
  * DDL
  *********************************************/
+ @font-face {
+    font-family: 'Aldo';
+    src: url('AldoPC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .lightblue {
  	background: #9BDAF9;
  }
