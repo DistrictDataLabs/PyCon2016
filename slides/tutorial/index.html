@@ -57,13 +57,33 @@
 
 			<section id="instructor-laura" data-markdown>
 				<script type="text/template">
-
-![Laura Word Cloud](images/laura_wordcloud.png)
+          ![Laura Word Cloud](images/laura_wordcloud.png)
           <aside class="notes">
 
           </aside>
         </script>
 			</section><!-- instructor slide ends -->
+
+      <section id="acknowledgements" data-markdown>
+				<script type="text/template">
+          ### Special Thanks
+
+          We wouldn't have gotten today's presentation done without:
+
+          #### William Voorhees
+
+          github.com/will2041<br />
+          @will2041
+
+          #### Rebecca Bilbro
+
+          github.com/rebeccabilbro<br />
+          @rebeccabilbro
+          <aside class="notes">
+
+          </aside>
+        </script>
+			</section><!-- acknowledgements slide ends -->
 
     </section>
     <!-- end introduction -->
@@ -92,7 +112,7 @@
           <h2 id='collocations'>collocations</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.Text.collocations">DOCS</a></p>
           <p>Print collocations derived from the text, ignoring stopwords. Collocations are words that often appear consecutively within corpora.</p>
-         
+
           <h2 id='plot'>plot</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist.plot">DOCS</a></p>
           <p>Plot samples from the frequency distribution displaying the most frequent sample first. If an integer parameter is supplied, stop after this many samples have been plotted. For a cumulative plot, specify cumulative=True. (Requires Matplotlib to be installed.)</p>
@@ -102,7 +122,7 @@
           <h2 id='index'>index</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.downloader.Downloader.index">DOCS</a></p>
           <p>Return the XML index describing the packages available from the data server. If necessary, this index will be downloaded from the data server.</p>
-         
+
           </aside>
 				</script>
 			</section><!-- part one title slide ends -->
@@ -152,7 +172,7 @@
           <img src="images/nltk-authors.png" alt="NLTK Authors" style="background:none; border:none; box-shadow:none;"/>
 
           <aside class="notes">
-         
+
           </aside>
         </script>
       </section><!-- nltk-authors slide ends -->
@@ -288,53 +308,6 @@
 				</script>
 			</section><!-- part two title slide ends -->
 
-			<section data-background="images/ds-pipeline.png" data-background-size="800px">
-			<h3>Data Science Pipeline</h3>
-          <aside class="notes">
-       
-          </aside>
-			</section><!-- end data-science-pipeline slide -->
-
-
-      <!-- data-product-pipeline slide -->
-      <section data-background="images/data_product_pipeline-pp.png" data-background-size="800px">
-         <h3>Data Product Pipeline</h3>
-					<aside class="notes">
-         
-          </aside>
-      </section><!-- end data-product-pipeline slide -->
-
-      <!-- baleen slide -->
-      <section data-markdown>
-				##Baleen
-
-- There’s plenty of natural language all over the Internet that you can use to build a custom corpora IF ONLY YOU COULD GET IT
-- One such implementation is Baleen, an RSS/Atom ingestion service that will regularly scrape the feeds specified in an OMPL format file for new content and store them as MongoDB documents for your later consumption
-
-          <aside class="notes">
-           
-          </aside>
-      </section><!-- end baleen slide -->
-
-      <!-- start baleen architecture slide -->
-<section data-background="images/baleen_service_architecture.png" data-background-size="800px">
-
-</section>
-      <!-- end baleen architecture slide -->
-
-      <!-- baleen-dashboard slide -->
-      <section>
-          <h3>Baleen Dashboard</h3>
-
-          Posts from Baleen Feeds are labelled by their feedtype category, which means we can use its data for supervised training of a model that can use text features to predict a Post’s category
-          <br/>
-
-          <img src="images/baleen-screenshot.png" height='300px'/>
-          <aside class="notes">
-
-          </aside>
-      </section><!-- baleen-dashboard slide ends -->
-
       <!-- corpus-reader slide -->
       <section id="corpus-reader" data-markdown>
         <script type="text/template">
@@ -353,22 +326,98 @@
 - [ConllChunkCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.conll.ConllChunkCorpusReader)
 ....
 and on and on
-       
+
         </script>
       </section><!-- corpus-reader slide ends -->
+
+      <!-- plaintext-corpus slide -->
+      <section id="plaintext-corpus" data-markdown>
+        <script type="text/template">
+          ## Working with Plaintext Corpora
+
+          ```python
+          DOC_PATTERN = r'(?!\.)[\w_\s]+/[\w\s\d\-]+\.txt'
+          CAT_PATTERN = r'([\w_\s]+)/.*'
+
+          corpus = nltk.corpus.reader.plaintext.CategorizedPlaintextCorpusReader(
+              '/path/to/corpus/root', DOC_PATTERN, cat_pattern=CAT_PATTERN
+          )
+          ```
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+			</section><!-- end plaintext-corpus slide -->
+
+      <!-- corpus-structure slide -->
+      <section id="corpus-structure" data-background="images/corpus-structure.png" data-background-size="800px">
+          <aside class="notes">
+
+          </aside>
+			</section><!-- end corpus-structure slide -->
+
+      <!-- data-science-pipeline slide -->
+      <section id="data-science-pipeline" data-background="images/ds-pipeline.png" data-background-size="800px">
+			    <h3>Data Science Pipeline</h3>
+          <aside class="notes">
+
+          </aside>
+			</section><!-- end data-science-pipeline slide -->
+
+
+      <!-- data-product-pipeline slide -->
+      <section id="data-product-pipeline" data-background="images/data_product_pipeline-pp.png" data-background-size="800px">
+          <h3>Data Product Pipeline</h3>
+					<aside class="notes">
+
+          </aside>
+      </section><!-- end data-product-pipeline slide -->
+
+      <!-- baleen slide -->
+      <section id="baleen" data-markdown>
+				##Baleen
+
+- There’s plenty of natural language all over the Internet that you can use to build a custom corpora IF ONLY YOU COULD GET IT
+- One such implementation is Baleen, an RSS/Atom ingestion service that will regularly scrape the feeds specified in an OMPL format file for new content and store them as MongoDB documents for your later consumption
+
+          <aside class="notes">
+
+          </aside>
+      </section><!-- end baleen slide -->
+
+      <!-- start baleen architecture slide -->
+      <section id="baleen-architecture" data-background="images/baleen_service_architecture.png" data-background-size="800px">
+
+      </section>
+      <!-- end baleen architecture slide -->
+
+      <!-- baleen-dashboard slide -->
+      <section id="baleen-dashboard">
+          <h3>Baleen Dashboard</h3>
+
+          Posts from Baleen Feeds are labelled by their feedtype category, which means we can use its data for supervised training of a model that can use text features to predict a Post’s category
+          <br/>
+
+          <img src="images/baleen-screenshot.png" height='300px'/>
+          <aside class="notes">
+
+          </aside>
+      </section><!-- baleen-dashboard slide ends -->
+
 <!-- lead in to corpus-reader notebook begins -->
 <section id='corpus-reader-subclass' data-markdown>
   <script type="text/template">
-### Or subclass your own
+### Custom Corpus Reader
 
 ```python
 class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
     """
-    Quick reader for the preprocessed 
-    tokenized and tagged version of the corpus. 
+    Quick reader for the preprocessed
+    tokenized and tagged version of the corpus.
     """
 
-    def __init__(self, root, fileids=PKL_PATTERN, 
+    def __init__(self, root, fileids=PKL_PATTERN,
     categoryids=CAT_PATTERN):
         # ...
 ```
@@ -414,7 +463,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           <small>What does this mean?</small>
 
           <aside class="notes">
-         
+
           </aside>
         </script>
       </section><!-- crab slide ends -->
@@ -453,7 +502,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           <small>These symbols are arbitrary</small>
 
           <aside class="notes">
-          
+
           </aside>
         </script>
       </section><!-- arbitrary-crab slide ends -->
@@ -557,7 +606,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 
 
           </aside>
-     
+
       </section><!-- formal-vs-natural-natural slide ends -->
 
       <!-- cs-formal slide -->
@@ -706,7 +755,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 
           <p>A tensor is the mathematical idealization of a geometric or physical quantity whose analytic description, relative to a fixed frame of reference, consists of an array of numbers1. Some well known examples of tensors in geometry are quadratic forms, and the curvature tensor. Examples of physical tensors are the energy-momentum tensor, and the polarization tensor. (<a href="http://planetmath.org/Tensor">PlanetMath</a>)</p>
 
-          <p>A tensor is a multidimensional or N-way array. For our purposes, a tensor is a multidimensional array of complex numbers.  The rank of a tensor is the number of indices.  Thus, a rank-0 tensor is scalar (x), a rank-1 tensor is a vector (v), and a rank-2 tensor is a matrix (A ). A Tensor  Network (TN)  is  a  set  of  tensors  where  some,  or  all,  of  its  indices  are  contracted according to some pattern.  Contracting the indices of a TN is called, for simplicity,contracting the TN... Once this point is reached, it is convenient to introduce a diagrammatic notation for tensors and TNs in terms of tensor network diagrams , see Fig.(5).  In these diagrams tensors are represented by shapes, and indices in the tensors are represented by lines emerging from the shapes.  A TN is thus represented by a set of shapes interconnected by lines.  The lines connecting tensors between each other correspond to contracted indices, whereas lines that do not go from one tensor to another correspond to open indices in the TN. Using TN diagrams it is much easier to handle calculations with TN. 
+          <p>A tensor is a multidimensional or N-way array. For our purposes, a tensor is a multidimensional array of complex numbers.  The rank of a tensor is the number of indices.  Thus, a rank-0 tensor is scalar (x), a rank-1 tensor is a vector (v), and a rank-2 tensor is a matrix (A ). A Tensor  Network (TN)  is  a  set  of  tensors  where  some,  or  all,  of  its  indices  are  contracted according to some pattern.  Contracting the indices of a TN is called, for simplicity,contracting the TN... Once this point is reached, it is convenient to introduce a diagrammatic notation for tensors and TNs in terms of tensor network diagrams , see Fig.(5).  In these diagrams tensors are represented by shapes, and indices in the tensors are represented by lines emerging from the shapes.  A TN is thus represented by a set of shapes interconnected by lines.  The lines connecting tensors between each other correspond to contracted indices, whereas lines that do not go from one tensor to another correspond to open indices in the TN. Using TN diagrams it is much easier to handle calculations with TN.
 
           <a href="https://arxiv.org/pdf/1306.2164v3.pdf">A Practical Introduction to Tensor Networks:
 Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a></p>
@@ -734,21 +783,21 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
 %%MatrixMarket matrix coordinate real general
 %=================================================================================
 %
-% This ASCII file represents a sparse MxN matrix with L 
+% This ASCII file represents a sparse MxN matrix with L
 % nonzeros in the following Matrix Market format:
 %
 % +----------------------------------------------+
 % |%%MatrixMarket matrix coordinate real general | <--- header line
 % |%                                             | <--+
 % |% comments                                    |    |-- 0 or more comment lines
-% |%                                             | <--+         
+% |%                                             | <--+
 % |    M  N  L                                   | <--- rows, columns, entries
 % |    I1  J1  A(I1, J1)                         | <--+
 % |    I2  J2  A(I2, J2)                         |    |
 % |    I3  J3  A(I3, J3)                         |    |-- L lines
 % |        . . .                                 |    |
 % |    IL JL  A(IL, JL)                          | <--+
-% +----------------------------------------------+   
+% +----------------------------------------------+
 %
 % Indices are 1-based, i.e. A(1,1) is the first element.
 %
@@ -846,8 +895,8 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
 				<script type="text/template">
           ### What is Required?
 
-          - Domain Knowledge
-          - A Corpus in the Domain
+          Domain Knowledge &amp;
+          A Corpus in the Domain
           <img src="images/knowledge.png" alt="Knowledge" style="display: block; margin: 0 auto; max-height: 500px; border: none;"/>
 
           <aside class="notes">
@@ -881,11 +930,12 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
 
           Major tasks
 
-          - document parsing (e.g. HTML parsing), structural decomposition
+          - document parsing (e.g. HTML parsing)
+          - structural decomposition
           - document clean up, targeting
 
           <aside class="notes">
-
+            - Unfastening, Disecting
           </aside>
         </script>
       </section><!-- discourse slide ends -->
@@ -922,7 +972,7 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           <img src="images/syntax.png" alt="Syntax" style="display: block; margin: 0 auto; max-height: 500px; border: none;"/>
 
           <aside class="notes">
-      
+
           </aside>
 				</script>
 			</section><!-- syntax slide ends -->
@@ -944,7 +994,7 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           - Creation of TMRs
 
           <aside class="notes">
-        
+
           </aside>
 				</script>
 			</section><!-- semantics slide ends -->
@@ -980,10 +1030,8 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           - Winning Jeopardy! IBM Watson
           - Computer assisted medical coding ([3M Health Information Systems](http://solutions.3m.com/wps/portal/3M/en_US/Health-Information-Systems/HIS/Products-and-Services/Computer-Assisted-Coding/))
           - Geoparsing -- [CLAVIN](http://clavin.io/) (built by Charlie Greenbacker)
-          - Author Identification (classification/clustering)
           - Sentiment Analysis (RTNNs, classification)
-          - Language Detection
-          - Event Detection
+          - Language &amp; Event Detection
           - [Google Knowledge Graph](http://www.google.com/insidesearch/features/search/knowledge.html)
           - Named Entity Recognition and Classification
           - Machine Translation
@@ -1116,7 +1164,7 @@ porter = PorterStemmer()
           <aside class="notes">
 
           </aside>
-    
+
       </section><!-- stemming-code slide ends -->
 
        <!-- lemmatization slide -->
@@ -1132,7 +1180,7 @@ porter = PorterStemmer()
           <aside class="notes">
 
           </aside>
-      
+
       </section><!-- lemmatization slide ends -->
 
       <!-- lemmatization-2 slide starts -->
@@ -1145,7 +1193,7 @@ porter = PorterStemmer()
             </section>
             <!-- lemmatization-2 slide ends -->
 
-		
+
 
 			<!-- lemmatization-code slide -->
 			<section id="lemmatization-code" data-markdown>
@@ -1237,7 +1285,7 @@ porter = PorterStemmer()
             nltk.ne_chunk(
               nltk.pos_tag(
                 nltk.word_tokenize(
-                  "John Smith is from the United" 
+                  "John Smith is from the United"
                   "States of America and "
                   "works at Microsoft Research Labs")))
           ```
@@ -1257,9 +1305,9 @@ porter = PorterStemmer()
         ```
         # change the paths below to point to wherever you unzipped the Stanford NER download file
 stanford_root = '/Users/benjamin/Development/stanford-ner-2014-01-04'
-stanford_data = os.path.join(stanford_root, 
+stanford_data = os.path.join(stanford_root,
   'classifiers/english.all.3class.distsim.crf.ser.gz')
-stanford_jar  = os.path.join(stanford_root, 
+stanford_jar  = os.path.join(stanford_root,
   'stanford-ner-2014-01-04.jar')
 
 st = StanfordNERTagger(stanford_data, stanford_jar, 'utf-8')
@@ -1511,11 +1559,11 @@ for i in st.tag(
         </script>
       </section><!-- much-work slide ends -->
 
-     
 
-     
 
-     
+
+
+
 
       <!-- designing-the-problem slide-->
       <section id="designing-the-problem" data-markdown>
@@ -1546,7 +1594,7 @@ for i in st.tag(
           </aside>
 				</script>
 			</section><!-- part six title slide ends -->
- 
+
   <!-- classification slide -->
       <section id="classification" data-markdown>
         <script type="text/template">
@@ -1690,8 +1738,8 @@ by Sebastian Raschka 2014</a>
 
 <p>Latent semantic indexing adds an important step to the document indexing process. In addition to recording which keywords a document contains, the method examines the document collection as a whole, to see which other documents contain some of those same words. LSI considers documents that have many words in common to be semantically close, and ones with few words in common to be semantically distant. This simple method correlates surprisingly well with how a human being, looking at content, might classify a document collection. Although the LSI algorithm doesn't understand anything about what the words mean, the patterns it notices can make it seem astonishingly intelligent. </p> (<a href="http://c2.com/cgi/wiki?LatentSemanticIndexing">Wild internet place</a>
 
-<a href="http://www1.se.cuhk.edu.hk/~seem5680/lecture/LSI-Eg.pdf">Summary of Grossman and Frieder’s 
-Information Retrieval, Algorithms and Heuristics, with an example of LSI which I suggest reading the whole thing 
+<a href="http://www1.se.cuhk.edu.hk/~seem5680/lecture/LSI-Eg.pdf">Summary of Grossman and Frieder’s
+Information Retrieval, Algorithms and Heuristics, with an example of LSI which I suggest reading the whole thing
 </a>
           </aside>
         </script>
@@ -1739,14 +1787,14 @@ Information Retrieval, Algorithms and Heuristics, with an example of LSI which I
           <aside class="notes">
 
           </aside>
-	
+
 			</section><!-- sprints slide ends -->
 
       <!-- questions slide -->
       <section id="questions" data-background="images/question_mark.jpg" data-background-size="800px" data-markdown>
 				<script type="text/template">
           <h3><font color="white">Questions?</font></h3>
-          
+
           <small><a href="http://bit.ly/25qgRN8">http://bit.ly/25qgRN8</a></small>
           </script>
 
