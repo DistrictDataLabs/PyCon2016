@@ -1104,11 +1104,48 @@ porter = PorterStemmer()
 				<script type="text/template">
           ### Named Entity Recognition
 
+          NLTK has an excellent MaxEnt backed Named Entity Recognizer that is trained on the Penn Treebank. You can also retrain the chunker if you would like - the code is very readable to extend it with a Gazette or otherwise.
+
+          ```
+          print(
+            nltk.ne_chunk(
+              nltk.pos_tag(
+                nltk.word_tokenize(
+                  "John Smith is from the United" 
+                  "States of America and "
+                  "works at Microsoft Research Labs")))
+          ```
           <aside class="notes">
 
 					</aside>
 				</script>
 			</section><!-- named-entity-recognition slide ends -->
+
+      <!-- named-entity-recognition-2 begins -->
+      <section id="named-entity-recognition-2" data-markdown>
+        <script type='text/template'>
+        ### Named Entity Recognition
+
+        You can also wrap the Stanford NER system, which many of you are also probably used to using.
+
+        ```
+        # change the paths below to point to wherever you unzipped the Stanford NER download file
+stanford_root = '/Users/benjamin/Development/stanford-ner-2014-01-04'
+stanford_data = os.path.join(stanford_root, 
+  'classifiers/english.all.3class.distsim.crf.ser.gz')
+stanford_jar  = os.path.join(stanford_root, 
+  'stanford-ner-2014-01-04.jar')
+
+st = StanfordNERTagger(stanford_data, stanford_jar, 'utf-8')
+for i in st.tag(
+  "John Bengfort is from the United States of America and "
+  "works at Microsoft Research Labs".split()):
+    print('[' + i[1] + '] ' + i[0])
+  ```
+
+        </script>
+
+      </section>
 
     </section>
     <!-- part four ends -->
