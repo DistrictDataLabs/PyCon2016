@@ -58,7 +58,7 @@
 			<section id="instructor-laura" data-markdown>
 				<script type="text/template">
 
-					![Laura Word Cloud](images/laura_wordcloud.png)
+![Laura Word Cloud](images/laura_wordcloud.png)
           <aside class="notes">
 
           </aside>
@@ -80,18 +80,19 @@
           <a href="#common_contexts">common_contexts</a>
           <a href="#concordance">concordance</a>
           <a href="#collocations">collocations</a>
-          <a href="#count">count</a>
           <a href="#plot">plot</a>
           <a href='#findall'>findall</a>
           <a href='#index'>index</a>
           <h2 id="common_contexts">common_contexts</h2>
+           <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.ContextIndex.common_contexts">DOCS</a>
+          <p>Find contexts where the specified words can all appear; and return a frequency distribution mapping each context to the number of times that context was used.</p>
           <h2 id='concordance'>concordance</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.Text.concordance">DOCS</a>
           <p>Print a concordance for word with the specified context window. Word matching is not case-sensitive.</p>
           <h2 id='collocations'>collocations</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.Text.collocations">DOCS</a></p>
           <p>Print collocations derived from the text, ignoring stopwords. Collocations are words that often appear consecutively within corpora.</p>
-         <!-- <h2 id='count'>count</h2> -->
+         
           <h2 id='plot'>plot</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist.plot">DOCS</a></p>
           <p>Plot samples from the frequency distribution displaying the most frequent sample first. If an integer parameter is supplied, stop after this many samples have been plotted. For a cumulative plot, specify cumulative=True. (Requires Matplotlib to be installed.)</p>
@@ -101,8 +102,7 @@
           <h2 id='index'>index</h2>
           <p><a href="http://www.nltk.org/api/nltk.html#nltk.downloader.Downloader.index">DOCS</a></p>
           <p>Return the XML index describing the packages available from the data server. If necessary, this index will be downloaded from the data server.</p>
-          <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.ContextIndex.common_contexts">DOCS</a>
-          <p>Find contexts where the specified words can all appear; and return a frequency distribution mapping each context to the number of times that context was used.</p>
+         
           </aside>
 				</script>
 			</section><!-- part one title slide ends -->
@@ -152,7 +152,7 @@
           <img src="images/nltk-authors.png" alt="NLTK Authors" style="background:none; border:none; box-shadow:none;"/>
 
           <aside class="notes">
-        
+         
           </aside>
         </script>
       </section><!-- nltk-authors slide ends -->
@@ -291,7 +291,7 @@
 			<section data-background="images/ds-pipeline.png" data-background-size="800px">
 			<h3>Data Science Pipeline</h3>
           <aside class="notes">
-            TODO: Refactor images to stand on their own.
+       
           </aside>
 			</section><!-- end data-science-pipeline slide -->
 
@@ -300,7 +300,7 @@
       <section data-background="images/data_product_pipeline-pp.png" data-background-size="800px">
          <h3>Data Product Pipeline</h3>
 					<aside class="notes">
-            TODO:
+         
           </aside>
       </section><!-- end data-product-pipeline slide -->
 
@@ -357,7 +357,8 @@ and on and on
         </script>
       </section><!-- corpus-reader slide ends -->
 <!-- lead in to corpus-reader notebook begins -->
-<section data-markdown>
+<section id='corpus-reader-subclass' data-markdown>
+  <script type="text/template">
 ### Or subclass your own
 
 ```python
@@ -371,6 +372,11 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
     categoryids=CAT_PATTERN):
         # ...
 ```
+
+<aside class="notes">
+  TO THE NOTEBOOK!
+</aside>
+</script>
     </section>
     <!-- part two ends -->
 </section>
@@ -403,12 +409,12 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
       <!-- crab slide -->
       <section id="crab" data-markdown>
         <script type="text/template">
-          <big>Crab</big>
+          <h1>Crab</h1>
 
           <small>What does this mean?</small>
 
           <aside class="notes">
-            TODO: Bigger "Crab" symbol
+         
           </aside>
         </script>
       </section><!-- crab slide ends -->
@@ -447,7 +453,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           <small>These symbols are arbitrary</small>
 
           <aside class="notes">
-            TODO: Refactor Images on this slide
+          
           </aside>
         </script>
       </section><!-- arbitrary-crab slide ends -->
@@ -468,7 +474,8 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           - Artificial Intelligence
 
           <aside class="notes">
-            <a href="ferdinand">Ferdinand de Saussure</a>
+            <a href="#ferdinand">Ferdinand de Saussure</a>
+            <a href="#semiotics">Semiotics</a>
 
             <h2 id="ferdinand">Ferdinand de Saussure</h2>
             Ferdinand de Saussure was a Swiss linguist and semiotician whose ideas laid a foundation for many significant developments both in linguistics and semiology in the 20th century.
@@ -872,7 +879,7 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           Many documents have a set structure, some document formats (like HTML)
           directly expose the structure of the communication with tags.
 
-          ####Major tasks
+          Major tasks
 
           - document parsing (e.g. HTML parsing), structural decomposition
           - document clean up, targeting
@@ -915,7 +922,7 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           <img src="images/syntax.png" alt="Syntax" style="display: block; margin: 0 auto; max-height: 500px; border: none;"/>
 
           <aside class="notes">
-            TODO: Convert image to SVG
+      
           </aside>
 				</script>
 			</section><!-- syntax slide ends -->
@@ -937,7 +944,7 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           - Creation of TMRs
 
           <aside class="notes">
-            TODO: Convert image to SVG
+        
           </aside>
 				</script>
 			</section><!-- semantics slide ends -->
@@ -1028,6 +1035,8 @@ Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a
           <p>Tokenize a text into a sequence of alphabetic and non-alphabetic characters, using the regexp \w+|[^\w\s]+.</p>
           <p><a href="http://www.nltk.org/api/nltk.tag.html#nltk.tag.pos_tag">pos_tag</a>:</p>
           <p>Use NLTK’s currently recommended part of speech tagger to tag the given list of tokens.</p>
+          <p><a href="http://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.punkt.PunktLanguageVars.word_tokenize">word_tokenize</a>:</p>
+          <p>Tokenize a string to split off punctuation other than periods</p>
           </aside>
 				</script>
 			</section><!-- tokenization-tagging slide ends -->
@@ -1455,10 +1464,10 @@ for i in st.tag(
           ### Distributed Representation with gensim.models.Doc2Vec
 
           ```python
-          >>> import gensim
-          >>> documents = gensim.models.doc2vec.TaggedLineDocument("documents.txt")
-          >>> model = gensim.models.doc2vec.Doc2Vec(documents, size=7, min_count=0)
-          >>> model.docvecs[0]
+          import gensim
+          documents = gensim.models.doc2vec.TaggedLineDocument("documents.txt")
+          model = gensim.models.doc2vec.Doc2Vec(documents, size=7, min_count=0)
+          model.docvecs[0]
 
           array([-0.0225403 , -0.0212964 ,  0.02708783,  0.0049877 ,  0.04926294,
                  -0.03268785, -0.03209411], dtype=float32)
@@ -1589,7 +1598,7 @@ by Sebastian Raschka 2014</a>
 <p>In ordinary language, the principle of maximum entropy can be said to express a claim of epistemic modesty, or of maximum ignorance. The selected distribution is the one that makes the least claim to being informed beyond the stated prior data, that is to say the one that admits the most ignorance beyond the stated prior data.
  (<a href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy">Wikipedia</a>)</p>
 
- <h2 name='smoothing'>Smoothing</h2>
+ <h2 id='smoothing'>Smoothing</h2>
 
  <p>Re: Naive Bayes</p>
 
@@ -1619,7 +1628,7 @@ by Sebastian Raschka 2014</a>
           <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
 
           <aside class="notes">
-
+          To the notebook!
           </aside>
         </script>
       </section><!-- classification-pipeline slide ends -->
@@ -1696,7 +1705,7 @@ Information Retrieval, Algorithms and Heuristics, with an example of LSI which I
           <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
 
           <aside class="notes">
-
+          To the notebook!
           </aside>
         </script>
       </section><!-- topic-modeling-pipeline slide ends -->
