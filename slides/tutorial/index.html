@@ -904,9 +904,9 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           for sent in nltk.sent_tokenize(text):
             print(sent)
           for sent in nltk.sent_tokenize(text):
-            print list(nltk.wordpunct_tokenize(sent))
+            print(list(nltk.wordpunct_tokenize(sent)))
           for sent in nltk.sent_tokenize(text):
-            print list(nltk.pos_tag(nltk.word_tokenize(sent)))
+            print(list(nltk.pos_tag(nltk.word_tokenize(sent))))
           ```
 
           <aside class="notes">
@@ -921,98 +921,124 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 					### Stemming &amp; Lemmatization
 
 					Use stemming and lemmatization to normalize words across a corpora.
+            </script>
+        </section>
 
-					Stemming = chop off affixes to get the root stem of the word:
-					* running &#8594; run
-					* flowers &#8594; flower
-					* geese   &#8594; geese
+        <!-- stemming-lemmatization slide ends -->
 
+        <!-- stemming-1 slide -->
+        <section id="stemming-1" data-markdown>
+          <script type="text/template">
+### Stemming
+
+Stemming = chop off affixes to get the root stem of the word:
+* running &#8594; run
+* flowers &#8594; flower
+* geese   &#8594; geese
+</script>
 					<aside class="notes">
 
 					</aside>
-				</script>
-			</section><!-- stemming-lemmatization slide ends -->
 
-      <!-- stemming-lemmatization-lems slide -->
-      <section id="stemming-lemmatization-lems" data-markdown>
+			</section><!-- stemming-1 slide ends -->
+
+			<!-- stemming-2 slide -->
+      <section id="stemming-2" data-markdown>
+				<script type="text/template">
+        <style>
+            ul.col {
+              float:left;
+            }
+            ul.col li {
+              width: 100%;
+            }
+          </style>
+          ### Stemming
+
+          - Stemmers
+            - Lancaster (English, newer and aggressive)
+              - [class nltk.stem.lancaster.LancasterStemmer](http://www.nltk.org/_modules/nltk/stem/lancaster.html#LancasterStemmer)
+            - Porter (English, original stemmer)
+              - [class nltk.stem.porter.PorterStemmer](http://www.nltk.org/_modules/nltk/stem/porter.html#PorterStemmer)
+            - Snowball (Many languages, newest)
+              - [class nltk.stem.snowball.EnglishStemmer](http://www.nltk.org/_modules/nltk/stem/snowball.html#EnglishStemmer)
+              - And several others for other languages
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- stemming-2 slide ends -->
+
+        <!-- stemming-code slide -->
+      <section id="stemming-code" data-markdown>
         <script type="text/template">
-          ### Stemming &amp; Lemmatization
+### Stemming
+
+```python
+from nltk.stem.snowball import SnowballStemmer
+from nltk.stem.lancaster import LancasterStemmer
+from nltk.stem.porter import PorterStemmer
+
+text = list(nltk.word_tokenize("The women running in the fog passed bunnies working as computer scientists."))
+
+snowball = SnowballStemmer('english')
+lancaster = LancasterStemmer()
+porter = PorterStemmer()
+```
+</script>
+          <aside class="notes">
+
+          </aside>
+    
+      </section><!-- stemming-code slide ends -->
+
+       <!-- lemmatization slide -->
+      <section id="lemmatization" data-markdown>
+        <script type="text/template">
+          ### Lemmatization
 
           Lemmatization = look up word form in a lexicon to get canonical lemma:
           * women   &#8594; woman
           * foxes   &#8594; fox
           * sheep   &#8594; sheep
-
+</script>
           <aside class="notes">
 
           </aside>
-        </script>
-      </section><!-- stemming-lemmatization-lems slide ends -->
+      
+      </section><!-- lemmatization slide ends -->
 
-			<!-- stemming-lemmatization-2 slide -->
-      <section id="stemming-lemmatization-2" data-markdown>
-				<script type="text/template">
-          ### Stemming &amp; Lemmatization
-
-          - Stemmers
-            - Lancaster (English, newer and aggressive)
-              - class nltk.stem.lancaster.LancasterStemmer [[source]](http://www.nltk.org/_modules/nltk/stem/lancaster.html#LancasterStemmer)
-            - Porter (English, original stemmer)
-              - class nltk.stem.porter.PorterStemmer [[source]](http://www.nltk.org/_modules/nltk/stem/porter.html#PorterStemmer)
-            - Snowball (Many languages, newest)
-              - class nltk.stem.snowball.EnglishStemmer(ignore_stopwords=False) [[source]](http://www.nltk.org/_modules/nltk/stem/snowball.html#EnglishStemmer)
-              - And several others for other languages
-          - Lemmatizer
+      <!-- lemmatization-2 slide starts -->
+      <section id="lemmaization-2" data-markdown>
+        ## Lemmatization
+        - Lemmatizer
             - WordNet lexicon
-              - class nltk.stem.wordnet.WordNetLemmatizer [[source]](http://www.nltk.org/_modules/nltk/stem/wordnet.html#WordNetLemmatizer)
+              - [class nltk.stem.wordnet.WordNetLemmatizer](http://www.nltk.org/_modules/nltk/stem/wordnet.html#WordNetLemmatizer)
 
-          <aside class="notes">
+            </section>
+            <!-- lemmatization-2 slide ends -->
 
-          </aside>
-				</script>
-			</section><!-- stemming-lemmatization-2 slide ends -->
+		
 
-			<!-- stemming-lemmatization-3 slide -->
-      <section id="stemming-lemmatization-3" data-markdown>
+			<!-- lemmatization-code slide -->
+			<section id="lemmatization-code" data-markdown>
 				<script type="text/template">
-          ### Stemming &amp; Lemmatization
-
-          ```python
-          from nltk.stem.snowball import SnowballStemmer
-          from nltk.stem.lancaster import LancasterStemmer
-          from nltk.stem.porter import PorterStemmer
-
-          text = list(nltk.word_tokenize("The women running in the fog passed bunnies working as computer scientists."))
-
-          snowball = SnowballStemmer('english')
-          lancaster = LancasterStemmer()
-          porter = PorterStemmer()
-          ```
-
-          <aside class="notes">
-
-          </aside>
-				</script>
-			</section><!-- stemming-lemmatization-3 slide ends -->
-
-			<!-- stemming-lemmatization-4 slide -->
-			<section id="stemming-lemmatization-4" data-markdown>
-				<script type="text/template">
-          ### Stemming &amp; Lemmatization
+          ### Lemmatization
 
           ```python
           from nltk.stem.wordnet import WordNetLemmatizer
 
           lemmatizer = WordNetLemmatizer()
           lemmas = [lemmatizer.lemmatize(t) for t in text]
-          print " ".join(lemmas)
+          print(" ".join(lemmas))
           ```
 
           <aside class="notes">
 
 					</aside>
 				</script>
-			</section><!-- stemming-lemmatization-4 slide ends -->
+			</section><!-- lemmatization-code slide ends -->
 
 			<!-- stemming-lemmatization-5 slide -->
 			<section id="stemming-lemmatization-5" data-markdown>
@@ -1078,11 +1104,48 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 				<script type="text/template">
           ### Named Entity Recognition
 
+          NLTK has an excellent MaxEnt backed Named Entity Recognizer that is trained on the Penn Treebank. You can also retrain the chunker if you would like - the code is very readable to extend it with a Gazette or otherwise.
+
+          ```
+          print(
+            nltk.ne_chunk(
+              nltk.pos_tag(
+                nltk.word_tokenize(
+                  "John Smith is from the United" 
+                  "States of America and "
+                  "works at Microsoft Research Labs")))
+          ```
           <aside class="notes">
 
 					</aside>
 				</script>
 			</section><!-- named-entity-recognition slide ends -->
+
+      <!-- named-entity-recognition-2 begins -->
+      <section id="named-entity-recognition-2" data-markdown>
+        <script type='text/template'>
+        ### Named Entity Recognition
+
+        You can also wrap the Stanford NER system, which many of you are also probably used to using.
+
+        ```
+        # change the paths below to point to wherever you unzipped the Stanford NER download file
+stanford_root = '/Users/benjamin/Development/stanford-ner-2014-01-04'
+stanford_data = os.path.join(stanford_root, 
+  'classifiers/english.all.3class.distsim.crf.ser.gz')
+stanford_jar  = os.path.join(stanford_root, 
+  'stanford-ner-2014-01-04.jar')
+
+st = StanfordNERTagger(stanford_data, stanford_jar, 'utf-8')
+for i in st.tag(
+  "John Bengfort is from the United States of America and "
+  "works at Microsoft Research Labs".split()):
+    print('[' + i[1] + '] ' + i[0])
+  ```
+
+        </script>
+
+      </section>
 
     </section>
     <!-- part four ends -->
@@ -1372,7 +1435,60 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
               - Maximum Entropy
 
           <aside class="notes">
+<a href='#bayes'>Naive Bayes</a><br />
+<a href='#maximumentropy'>Maximum Entropy</a><br />
+<a href='#smoothing'>Smoothing</a><br />
+<h2 id='bayes'>Naive Bayes:</h2>
 
+<p>In machine learning, naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem with strong (naive) independence assumptions between the features. (<a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Wikipedia</a>)</p>
+
+<p>The probabilistic model of naive Bayes classifiers is based on Bayes’ theorem, and the adjective naive comes from the assumption that the features in a dataset are mutually independent. In practice, the independence assumption is often violated, but naive Bayes classifiers still tend to perform very well under this unrealistic assumption.</p>
+
+<p>The probability model that was formulated by Thomas Bayes (1701-1761) is quite simple yet powerful; it can be written down in simple words as follows:</p>
+<p>posteriorprobability=conditionalprobability⋅priorprobabilityevidence.</p>
+<p> Bayes’ theorem forms the core of the whole concept of naive Bayes classification. The posterior probability, in the context of a classification problem, can be interpreted as: “What is the probability that a particular object belongs to class i given its observed feature values?” A more concrete example would be: “What is the probability that a person has diabetes given a certain value for a pre-breakfast blood glucose measurement and a certain value for a post-breakfast blood glucose measurement?”</p>
+
+<p>One assumption that Bayes classifiers make is that the samples are i.i.d. The abbreviation i.i.d. stands for “independent and identically distributed” and describes random variables that are independent from one another and are drawn from a similar probability distribution. Independence means that the probability of one observation does not affect the probability of another observation (e.g., time series and network graphs are not independent).</p>
+
+<p>An additional assumption of naive Bayes classifiers is the conditional independence of features. Under this naive assumption, the class-conditional probabilities or (likelihoods) of the samples can be directly estimated from the training data instead of evaluating all possibilities of x.</p>
+
+<p>To illustrate this concept with an example, let’s assume that we have a collection of 500 documents where 100 documents are spam messages. Now, we want to calculate the class-conditional probability for a new message “Hello World” given that it is spam. Here, the pattern consists of two features: “hello” and “world,” and the class-conditional probability is the product of the “probability of encountering ‘hello’ given the message is spam” — the probability of encountering “world” given the message is spam.”</p>
+<p>P(x=[hello,world]∣ω=spam)=P(hello∣spam)⋅P(world∣spam)</p>
+
+(<a href="http://sebastianraschka.com/Articles/2014_naive_bayes_1.html">Naive Bayes and Text Classification
+– Introduction and Theory
+by Sebastian Raschka 2014</a>
+)
+
+<h2 id="maximumentropy">Maximum Entropy</h2>
+
+<p>Intuitively, the principle is simple: model all that is known and assume nothing about that which is unknown. In other words, given a collection of facts, choose a model consistent with all the facts, but otherwise as uniform as possible. (<a href="https://aclweb.org/anthology/J/J96/J96-1002.pdf">"A Maximum Entropy Approach to Natural Language Processing " by Berger et al, 1996</a>, introductory paper)
+</p>
+
+<p>The principle of maximum entropy states that, subject to precisely stated prior data (such as a proposition that expresses testable information), the probability distribution which best represents the current state of knowledge is the one with largest entropy.</p>
+
+<p>Another way of stating this: Take precisely stated prior data or testable information about a probability distribution function. Consider the set of all trial probability distributions that would encode the prior data. Of those, the one with maximal information entropy is the proper distribution, according to this principle.</p>
+
+<p>In ordinary language, the principle of maximum entropy can be said to express a claim of epistemic modesty, or of maximum ignorance. The selected distribution is the one that makes the least claim to being informed beyond the stated prior data, that is to say the one that admits the most ignorance beyond the stated prior data.
+ (<a href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy">Wikipedia</a>)</p>
+
+ <h2 name='smoothing'>Smoothing</h2>
+
+ <p>Re: Naive Bayes</p>
+
+ <p>If a given class and feature value never occur together in the training data, then the frequency-based probability estimate will be zero. This is problematic because it will wipe out all information in the other probabilities when they are multiplied. Therefore, it is often desirable to incorporate a small-sample correction, called pseudocount, in all probability estimates such that no probability is ever set to be exactly zero. This way of regularizing naive Bayes is called Laplace smoothing when the pseudocount is one, and Lidstone smoothing in the general case.
+ (Wikipedia)</p>
+
+ <p>Generally:</p>
+
+ <p>In statistics, additive smoothing, also called Laplace smoothing[1] (not to be confused with Laplacian smoothing), or Lidstone smoothing, is a technique used to smooth categorical data. Given an observation x = (x1, …, xd) from a multinomial distribution with N trials and parameter vector θ = (θ1, …, θd), a "smoothed" version of the data gives the estimator:</p>
+
+   <p> \hat\theta_i= \frac{x_i + \alpha}{N + \alpha d} \qquad (i=1,\ldots,d),</p>
+
+<p>where the pseudocount α > 0 is the smoothing parameter (α = 0 corresponds to no smoothing). Additive smoothing is a type of shrinkage estimator, as the resulting estimate will be between the empirical estimate xi / N, and the uniform probability 1/d. Using Laplace's rule of succession, some authors have argued[citation needed]that α should be 1 (in which case the term add-one smoothing[2][3] is also used), though in practice a smaller value is typically chosen.</p>
+
+<p>From a Bayesian point of view, this corresponds to the expected value of the posterior distribution, using a symmetric Dirichlet distribution with parameter α as a prior. In the special case where the number of categories is 2, this is equivalent to using a Beta distribution as the conjugate prior for the parameters of Binomial distribution.
+(<a href="https://en.wikipedia.org/wiki/Additive_smoothing">Wikipedia</a>)</p>
           </aside>
         </script>
       </section><!-- classification slide ends -->
@@ -1422,7 +1538,34 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
               - LDA
 
           <aside class="notes">
+<a href="#lda">LDA</a>
 
+<h2 id="lda">LDA</h2>
+<p>In natural language processing, latent Dirichlet allocation (LDA) is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For example, if observations are words collected into documents, it posits that each document is a mixture of a small number of topics and that each word's creation is attributable to one of the document's topics. LDA is an example of a topic model and was first presented as a graphical model for topic discovery by David Blei, Andrew Ng, and Michael I. Jordan in 2003.[1] Essentially the same model was also proposed independently by J. K. Pritchard, M. Stephens, and P. Donnelly in the study of population genetics in 2000.[2]</p>
+
+<p>In LDA, each document may be viewed as a mixture of various topics. This is similar to probabilistic latent semantic analysis (pLSA), except that in LDA the topic distribution is assumed to have a Dirichlet prior. In practice, this results in more reasonable mixtures of topics in a document. It has been noted, however, that the pLSA model is equivalent to the LDA model under a uniform Dirichlet prior distribution.</p>
+<p>For example, an LDA model might have topics that can be classified as CAT_related and DOG_related. A topic has probabilities of generating various words, such as milk, meow, and kitten, which can be classified and interpreted by the viewer as "CAT_related". Naturally, the word cat itself will have high probability given this topic. The DOG_related topic likewise has probabilities of generating each word: puppy, bark, and bone might have high probability. Words without special relevance, such as the (see function word), will have roughly even probability between classes (or can be placed into a separate category). A topic is not strongly defined, neither semantically nor epistemologically. It is identified on the basis of supervised labeling and (manual) pruning on the basis of their likelihood of co-occurrence. A lexical word may occur in several topics with a different probability, however, with a different typical set of neighboring words in each topic.</p>
+
+<p>Each document is assumed to be characterized by a particular set of topics. This is akin to the standard bag of words model assumption, and makes the individual words exchangeable.</p>
+(<a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Wikipedia</a>)
+
+<p>In more detail, LDA represents documents as mixtures of topics that spit out words with certain probabilities. It assumes that documents are produced in the following fashion: when writing each document, you</p>
+
+   <ul><li> Decide on the number of words N the document will have (say, according to a Poisson distribution).</li>
+    <li>Choose a topic mixture for the document (according to a Dirichlet distribution over a fixed set of K topics). For example, assuming that we have the two food and cute animal topics above, you might choose the document to consist of 1/3 food and 2/3 cute animals.</li>
+    <li>Generate each word w_i in the document by:
+        First picking a topic (according to the multinomial distribution that you sampled above; for example, you might pick the food topic with 1/3 probability and the cute animals topic with 2/3 probability).</li>
+        <li>Using the topic to generate the word itself (according to the topic’s multinomial distribution). For example, if we selected the food topic, we might generate the word “broccoli” with 30% probability, “bananas” with 15% probability, and so on.</li></ul>
+
+<p>Assuming this generative model for a collection of documents, LDA then tries to backtrack from the documents to find a set of topics that are likely to have generated the collection.</p> (<a href="http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/">Blog post by Edwin Chen whoever he is, but I like his style</a>)
+
+<h2 id="lsi">LSI = Latent Semantic Indexing</h2>
+
+<p>Latent semantic indexing adds an important step to the document indexing process. In addition to recording which keywords a document contains, the method examines the document collection as a whole, to see which other documents contain some of those same words. LSI considers documents that have many words in common to be semantically close, and ones with few words in common to be semantically distant. This simple method correlates surprisingly well with how a human being, looking at content, might classify a document collection. Although the LSI algorithm doesn't understand anything about what the words mean, the patterns it notices can make it seem astonishingly intelligent. </p> (<a href="http://c2.com/cgi/wiki?LatentSemanticIndexing">Wild internet place</a>
+
+<a href="http://www1.se.cuhk.edu.hk/~seem5680/lecture/LSI-Eg.pdf">Summary of Grossman and Frieder’s 
+Information Retrieval, Algorithms and Heuristics, with an example of LSI which I suggest reading the whole thing 
+</a>
           </aside>
         </script>
       </section><!-- clustering slide ends -->
@@ -1462,21 +1605,27 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 				<script type="text/template">
           ## Sprints
 
+          - Baleen: RSS/Atom ingestion tool
+          - Trinket: Visual model analyzer
+          - [See the PyCon Sprints schedule for more details](https://us.pycon.org/2016/community/sprints/)
+          </script>
           <aside class="notes">
 
           </aside>
-				</script>
+	
 			</section><!-- sprints slide ends -->
 
       <!-- questions slide -->
-      <section id="questions" data-markdown>
+      <section id="questions" data-background="images/question_mark.jpg" data-background-size="800px" data-markdown>
 				<script type="text/template">
-          ## Questions?
+          <h3><font color="white">Questions?</font></h3>
+          
+          <small><a href="http://bit.ly/25qgRN8">http://bit.ly/25qgRN8</a></small>
+          </script>
 
           <aside class="notes">
 
           </aside>
-				</script>
 			</section><!-- questions slide ends -->
 
     </section>
