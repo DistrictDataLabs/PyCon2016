@@ -57,13 +57,44 @@
 
 			<section id="instructor-laura" data-markdown>
 				<script type="text/template">
-
-					![Laura Word Cloud](images/laura_wordcloud.png)
+          ![Laura Word Cloud](images/laura_wordcloud.png)
           <aside class="notes">
 
           </aside>
         </script>
 			</section><!-- instructor slide ends -->
+
+      <section id="acknowledgements" data-markdown>
+				<script type="text/template">
+          ### Special Thanks
+
+          We wouldn't have gotten today's presentation done without:
+
+          #### William Voorhees
+
+          github.com/will2041<br />
+          @will2041
+
+          <img src="images/Will_wordcloud.png" height='200px'>
+          </script>
+</section>
+<section id="aknowledgements-2" data-markdown>
+<script type="text/template">
+### Special Thanks
+
+We wouldn't have gotten today's presentation done without:
+
+#### Rebecca Bilbro
+
+github.com/rebeccabilbro<br />
+@rebeccabilbro
+
+<img src="images/Rebecca_wordcloud.png" height='200px'>
+<aside class="notes">
+
+          </aside>
+        </script>
+			</section><!-- acknowledgements slide ends -->
 
     </section>
     <!-- end introduction -->
@@ -77,6 +108,31 @@
           ## Introduction to NLTK and Gensim
 
           <aside class="notes">
+          <a href="#common_contexts">common_contexts</a>
+          <a href="#concordance">concordance</a>
+          <a href="#collocations">collocations</a>
+          <a href="#plot">plot</a>
+          <a href='#findall'>findall</a>
+          <a href='#index'>index</a>
+          <h2 id="common_contexts">common_contexts</h2>
+           <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.ContextIndex.common_contexts">DOCS</a>
+          <p>Find contexts where the specified words can all appear; and return a frequency distribution mapping each context to the number of times that context was used.</p>
+          <h2 id='concordance'>concordance</h2>
+          <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.Text.concordance">DOCS</a>
+          <p>Print a concordance for word with the specified context window. Word matching is not case-sensitive.</p>
+          <h2 id='collocations'>collocations</h2>
+          <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.Text.collocations">DOCS</a></p>
+          <p>Print collocations derived from the text, ignoring stopwords. Collocations are words that often appear consecutively within corpora.</p>
+
+          <h2 id='plot'>plot</h2>
+          <p><a href="http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist.plot">DOCS</a></p>
+          <p>Plot samples from the frequency distribution displaying the most frequent sample first. If an integer parameter is supplied, stop after this many samples have been plotted. For a cumulative plot, specify cumulative=True. (Requires Matplotlib to be installed.)</p>
+          <h2 id='findall'>findall</h2>
+          <p><a href="http://www.nltk.org/api/nltk.html#nltk.text.TokenSearcher.findall">DOCS</a></p>
+          <p>Find instances of the regular expression in the text. The text is a list of tokens, and a regexp pattern to match a single token must be surrounded by angle brackets.</p>
+          <h2 id='index'>index</h2>
+          <p><a href="http://www.nltk.org/api/nltk.html#nltk.downloader.Downloader.index">DOCS</a></p>
+          <p>Return the XML index describing the packages available from the data server. If necessary, this index will be downloaded from the data server.</p>
 
           </aside>
 				</script>
@@ -127,7 +183,7 @@
           <img src="images/nltk-authors.png" alt="NLTK Authors" style="background:none; border:none; box-shadow:none;"/>
 
           <aside class="notes">
-            TODO: Add author images and bios as separate entities.
+
           </aside>
         </script>
       </section><!-- nltk-authors slide ends -->
@@ -263,53 +319,6 @@
 				</script>
 			</section><!-- part two title slide ends -->
 
-			<section data-background="images/ds-pipeline.png" data-background-size="800px">
-			<h3>Data Science Pipeline</h3>
-          <aside class="notes">
-            TODO: Refactor images to stand on their own.
-          </aside>
-			</section><!-- end data-science-pipeline slide -->
-
-
-      <!-- data-product-pipeline slide -->
-      <section data-background="images/data_product_pipeline-pp.png" data-background-size="800px">
-         <h3>Data Product Pipeline</h3>
-					<aside class="notes">
-            TODO:
-          </aside>
-      </section><!-- end data-product-pipeline slide -->
-
-      <!-- baleen slide -->
-      <section data-markdown>
-				##Baleen
-
-- There’s plenty of natural language all over the Internet that you can use to build a custom corpora IF ONLY YOU COULD GET IT
-- One such implementation is Baleen, an RSS/Atom ingestion service that will regularly scrape the feeds specified in an OMPL format file for new content and store them as MongoDB documents for your later consumption
-
-          <aside class="notes">
-           
-          </aside>
-      </section><!-- end baleen slide -->
-
-      <!-- start baleen architecture slide -->
-<section data-background="images/baleen_service_architecture.png" data-background-size="800px">
-
-</section>
-      <!-- end baleen architecture slide -->
-
-      <!-- baleen-dashboard slide -->
-      <section>
-          <h3>Baleen Dashboard</h3>
-
-          Posts from Baleen Feeds are labelled by their feedtype category, which means we can use its data for supervised training of a model that can use text features to predict a Post’s category
-          <br/>
-
-          <img src="images/baleen-screenshot.png" height='300px'/>
-          <aside class="notes">
-
-          </aside>
-      </section><!-- baleen-dashboard slide ends -->
-
       <!-- corpus-reader slide -->
       <section id="corpus-reader" data-markdown>
         <script type="text/template">
@@ -328,24 +337,106 @@
 - [ConllChunkCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.conll.ConllChunkCorpusReader)
 ....
 and on and on
-       
+
         </script>
       </section><!-- corpus-reader slide ends -->
+
+      <!-- plaintext-corpus slide -->
+      <section id="plaintext-corpus" data-markdown>
+        <script type="text/template">
+          ## Working with Plaintext Corpora
+
+          ```python
+          DOC_PATTERN = r'(?!\.)[\w_\s]+/[\w\s\d\-]+\.txt'
+          CAT_PATTERN = r'([\w_\s]+)/.*'
+
+          corpus = nltk.corpus.reader.plaintext.CategorizedPlaintextCorpusReader(
+              '/path/to/corpus/root', DOC_PATTERN, cat_pattern=CAT_PATTERN
+          )
+          ```
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+			</section><!-- end plaintext-corpus slide -->
+
+      <!-- corpus-structure slide -->
+      <section id="corpus-structure" data-background="images/corpus-structure.png" data-background-size="800px">
+          <aside class="notes">
+
+          </aside>
+			</section><!-- end corpus-structure slide -->
+
+      <!-- data-science-pipeline slide -->
+      <section id="data-science-pipeline" data-background="images/ds-pipeline.png" data-background-size="800px">
+			    <h3>Data Science Pipeline</h3>
+          <aside class="notes">
+
+          </aside>
+			</section><!-- end data-science-pipeline slide -->
+
+
+      <!-- data-product-pipeline slide -->
+      <section id="data-product-pipeline" data-background="images/data_product_pipeline-pp.png" data-background-size="800px">
+          <h3>Data Product Pipeline</h3>
+					<aside class="notes">
+
+          </aside>
+      </section><!-- end data-product-pipeline slide -->
+
+      <!-- baleen slide -->
+      <section id="baleen" data-markdown>
+				##Baleen
+
+- There’s plenty of natural language all over the Internet that you can use to build a custom corpora IF ONLY YOU COULD GET IT
+- One such implementation is Baleen, an RSS/Atom ingestion service that will regularly scrape the feeds specified in an OMPL format file for new content and store them as MongoDB documents for your later consumption
+
+          <aside class="notes">
+
+          </aside>
+      </section><!-- end baleen slide -->
+
+      <!-- start baleen architecture slide -->
+      <section id="baleen-architecture" data-background="images/baleen_service_architecture.png" data-background-size="800px">
+
+      </section>
+      <!-- end baleen architecture slide -->
+
+      <!-- baleen-dashboard slide -->
+      <section id="baleen-dashboard">
+          <h3>Baleen Dashboard</h3>
+
+          Posts from Baleen Feeds are labelled by their feedtype category, which means we can use its data for supervised training of a model that can use text features to predict a Post’s category
+          <br/>
+
+          <img src="images/baleen-screenshot.png" height='300px'/>
+          <aside class="notes">
+
+          </aside>
+      </section><!-- baleen-dashboard slide ends -->
+
 <!-- lead in to corpus-reader notebook begins -->
-<section data-markdown>
-### Or subclass your own
+<section id='corpus-reader-subclass' data-markdown>
+  <script type="text/template">
+### Custom Corpus Reader
 
 ```python
 class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
     """
-    Quick reader for the preprocessed 
-    tokenized and tagged version of the corpus. 
+    Quick reader for the preprocessed
+    tokenized and tagged version of the corpus.
     """
 
-    def __init__(self, root, fileids=PKL_PATTERN, 
+    def __init__(self, root, fileids=PKL_PATTERN,
     categoryids=CAT_PATTERN):
         # ...
 ```
+
+<aside class="notes">
+  TO THE NOTEBOOK!
+</aside>
+</script>
     </section>
     <!-- part two ends -->
 </section>
@@ -378,12 +469,12 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
       <!-- crab slide -->
       <section id="crab" data-markdown>
         <script type="text/template">
-          <big>Crab</big>
+          <h1>Crab</h1>
 
           <small>What does this mean?</small>
 
           <aside class="notes">
-            TODO: Bigger "Crab" symbol
+
           </aside>
         </script>
       </section><!-- crab slide ends -->
@@ -422,7 +513,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           <small>These symbols are arbitrary</small>
 
           <aside class="notes">
-            TODO: Refactor Images on this slide
+
           </aside>
         </script>
       </section><!-- arbitrary-crab slide ends -->
@@ -443,10 +534,26 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           - Artificial Intelligence
 
           <aside class="notes">
-            TODO: Refactor Images on this slide
+            <a href="#ferdinand">Ferdinand de Saussure</a>
+            <a href="#semiotics">Semiotics</a>
 
+            <h2 id="ferdinand">Ferdinand de Saussure</h2>
             Ferdinand de Saussure was a Swiss linguist and semiotician whose ideas laid a foundation for many significant developments both in linguistics and semiology in the 20th century.
             discovery of the internal structure of the linguistic sign differentiated the sign both from mere acoustic 'things' ... and from mental processes, and that in this development new roads were thereby opened not only for linguistics, but also, in the future, for the theory of literature.
+
+            <h2 id="semiotics">Semiotics</h2>
+            Semiotics (also called semiotic studies; not to be confused with the Saussurean tradition called semiology which is a part of semiotics) is the study of meaning-making, the study of sign processes and meaningful communication.[1] This includes the study of signs and sign processes (semiosis), indication, designation, likeness, analogy, metaphor, symbolism, signification, and communication.
+
+<p>Semiotics is closely related to the field of linguistics, which, for its part, studies the structure and meaning of language more specifically. The semiotic tradition explores the study of signs and symbols as a significant part of communications. As different from linguistics, however, semiotics also studies non-linguistic sign systems. Semiotics may be divided into three branches:</p>
+
+    <ul>
+    <li>Semantics: relation between signs and the things to which they refer; their signified denotata, or meaning</li>
+    <li>Syntactics: relations among or between signs in formal structures</li>
+    <li>Pragmatics: relation between signs and sign-using agents or interpreters</li></ul>
+
+<p>Semiotics is frequently seen as having important anthropological dimensions; for example, the late Italian semiotician and novelist Umberto Eco proposed that every cultural phenomenon may be studied as communication.[2] Some semioticians focus on the logical dimensions of the science, however. They examine areas belonging also to the life sciences—such as how organisms make predictions about, and adapt to, their semiotic niche in the world (see semiosis). In general, semiotic theories take signs or sign systems as their object of study: the communication of information in living organisms is covered in biosemiotics (including zoosemiotics).</p>
+
+<p>Syntactics is the branch of semiotics that deals with the formal properties of signs and symbols.[3] More precisely, syntactics deals with the "rules that govern how words are combined to form phrases and sentences". Charles Morris adds that semantics deals with the relation of signs to their designata and the objects that they may or do denote; and, pragmatics deals with the biotic aspects of semiosis, that is, with all the psychological, biological, and sociological phenomena that occur in the functioning of signs.(<a href="https://en.wikipedia.org/wiki/Semiotics"></p>Wikipedia</a>)
           </aside>
         </script>
       </section><!-- saussurian-linguistics slide ends -->
@@ -510,7 +617,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 
 
           </aside>
-     
+
       </section><!-- formal-vs-natural-natural slide ends -->
 
       <!-- cs-formal slide -->
@@ -645,6 +752,78 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 
           <aside class="notes">
 
+          <a href="#tensornetwork">Tensor Networks</a>
+          <a href="#nnmf">NNMF</a>
+          <a href="#matrixmarketformat">Matrix Market Format</a>
+
+          <h2 id="tensornetwork">Tensor Networks</h2
+          >
+
+          <p>Re: Tensor Flow</p>
+<p>          This library of algorithms originated from Google's need to instruct computer systems, known as neural networks, to learn and reason similarly to how humans do, so that new applications can be derived which are able to assume roles and functions previously reserved only for capable humans; the name TensorFlow itself derives from the operations which such neural networks perform on multidimensional data arrays. These multidimensional arrays are referred to as "tensors" but this concept is not identical to the mathematical concept of tensors.[(<a href="https://en.wikipedia.org/wiki/TensorFlow">Wikipedia</a>)</p>
+
+          <p>Re: math</p>
+
+          <p>A tensor is the mathematical idealization of a geometric or physical quantity whose analytic description, relative to a fixed frame of reference, consists of an array of numbers1. Some well known examples of tensors in geometry are quadratic forms, and the curvature tensor. Examples of physical tensors are the energy-momentum tensor, and the polarization tensor. (<a href="http://planetmath.org/Tensor">PlanetMath</a>)</p>
+
+          <p>A tensor is a multidimensional or N-way array. For our purposes, a tensor is a multidimensional array of complex numbers.  The rank of a tensor is the number of indices.  Thus, a rank-0 tensor is scalar (x), a rank-1 tensor is a vector (v), and a rank-2 tensor is a matrix (A ). A Tensor  Network (TN)  is  a  set  of  tensors  where  some,  or  all,  of  its  indices  are  contracted according to some pattern.  Contracting the indices of a TN is called, for simplicity,contracting the TN... Once this point is reached, it is convenient to introduce a diagrammatic notation for tensors and TNs in terms of tensor network diagrams , see Fig.(5).  In these diagrams tensors are represented by shapes, and indices in the tensors are represented by lines emerging from the shapes.  A TN is thus represented by a set of shapes interconnected by lines.  The lines connecting tensors between each other correspond to contracted indices, whereas lines that do not go from one tensor to another correspond to open indices in the TN. Using TN diagrams it is much easier to handle calculations with TN.
+
+          <a href="https://arxiv.org/pdf/1306.2164v3.pdf">A Practical Introduction to Tensor Networks:
+Matrix Product States and Projected Entangled Pair States, Roman Orus, 2014</a></p>
+
+<h2 id="nnmf">Non Negative Matrix Factorization</h2>
+<p>Non-negative matrix factorization (NMF), also non-negative matrix approximation[1][2] is a group of algorithms in multivariate analysis and linear algebra where a matrix V is factorized into (usually) two matrices W and H, with the property that all three matrices have no negative elements. This non-negativity makes the resulting matrices easier to inspect. Also, in applications such as processing of audio spectrograms non-negativity is inherent to the data being considered. Since the problem is not exactly solvable in general, it is commonly approximated numerically. </p>
+
+<p>Here's an example based on a text-mining application:</p>
+<ul><li>
+    Let the input matrix (the matrix to be factored) be V with 10000 rows and 500 columns where words are in rows and documents are in columns. That is, we have 500 documents indexed by 10000 words. It follows that a column vector v in V represents a document.</li>
+    <li>Assume we ask the algorithm to find 10 features in order to generate a features matrix W with 10000 rows and 10 columns and a coefficients matrix H with 10 rows and 500 columns.</li>
+    <li>The product of W and H is a matrix with 10000 rows and 500 columns, the same shape as the input matrix V and, if the factorization worked, it is a reasonable approximation to the input matrix V.</li>
+    <li>From the treatment of matrix multiplication above it follows that each column in the product matrix WH is a linear combination of the 10000 row vectors in the features matrix W with coefficients supplied by the coefficients matrix H.</li></ul>
+
+<p>This last point is the basis of NMF because we can consider each original document in our example as being built from a small set of hidden features. NMF generates these features.</p>
+
+<p>It's useful to think of each feature (column vector) in the features matrix W as a document archetype comprising a set of words where each word's cell value defines the word's rank in the feature: The higher a word's cell value the higher the word's rank in the feature. A column in the coefficients matrix H represents an original document with a cell value defining the document's rank for a feature. This follows because each row in H represents a feature. We can now reconstruct a document (column vector) from our input matrix by a linear combination of our features (column vectors in W) where each feature is weighted by the feature's cell value from the document's column in H.(<a href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization">Wikipedia</a>)</p>
+
+<h2 id="matrixmarketformat">Matrix Market Format</h2>
+<p>The Matrix Market (MM) exchange formats provide a simple mechanism to facilitate the exchange of matrix data. In particular, the objective has been to define a minimal base ASCII file format which can be very easily explained and parsed, but can easily adapted to applications with a more rigid structure, or extended to related data objects. </p>
+
+
+<p>In MM coordinate format this could be represented as follows.</p>
+<p><font face="Courier New">
+%%MatrixMarket matrix coordinate real general
+%=================================================================================
+%
+% This ASCII file represents a sparse MxN matrix with L
+% nonzeros in the following Matrix Market format:
+%
+% +----------------------------------------------+
+% |%%MatrixMarket matrix coordinate real general | <--- header line
+% |%                                             | <--+
+% |% comments                                    |    |-- 0 or more comment lines
+% |%                                             | <--+
+% |    M  N  L                                   | <--- rows, columns, entries
+% |    I1  J1  A(I1, J1)                         | <--+
+% |    I2  J2  A(I2, J2)                         |    |
+% |    I3  J3  A(I3, J3)                         |    |-- L lines
+% |        . . .                                 |    |
+% |    IL JL  A(IL, JL)                          | <--+
+% +----------------------------------------------+
+%
+% Indices are 1-based, i.e. A(1,1) is the first element.
+%
+%=================================================================================
+  5  5  8
+    1     1   1.000e+00
+    2     2   1.050e+01
+    3     3   1.500e-02
+    1     4   6.000e+00
+    4     2   2.505e+02
+    4     4  -2.800e+02
+    4     5   3.332e+01
+    5     5   1.200e+01
+</font>
+<a href="http://math.nist.gov/MatrixMarket/formats.html">NIST</a>
           </aside>
         </script>
       </section><!-- connectionist-vs-symbolic slide ends -->
@@ -727,8 +906,8 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
 				<script type="text/template">
           ### What is Required?
 
-          - Domain Knowledge
-          - A Corpus in the Domain
+          Domain Knowledge &amp;
+          A Corpus in the Domain
           <img src="images/knowledge.png" alt="Knowledge" style="display: block; margin: 0 auto; max-height: 500px; border: none;"/>
 
           <aside class="notes">
@@ -760,13 +939,14 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           Many documents have a set structure, some document formats (like HTML)
           directly expose the structure of the communication with tags.
 
-          ####Major tasks
+          Major tasks
 
-          - document parsing (e.g. HTML parsing), structural decomposition
+          - document parsing (e.g. HTML parsing)
+          - structural decomposition
           - document clean up, targeting
 
           <aside class="notes">
-
+            - Unfastening, Disecting
           </aside>
         </script>
       </section><!-- discourse slide ends -->
@@ -803,7 +983,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           <img src="images/syntax.png" alt="Syntax" style="display: block; margin: 0 auto; max-height: 500px; border: none;"/>
 
           <aside class="notes">
-            TODO: Convert image to SVG
+
           </aside>
 				</script>
 			</section><!-- syntax slide ends -->
@@ -825,7 +1005,7 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           - Creation of TMRs
 
           <aside class="notes">
-            TODO: Convert image to SVG
+
           </aside>
 				</script>
 			</section><!-- semantics slide ends -->
@@ -861,10 +1041,8 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           - Winning Jeopardy! IBM Watson
           - Computer assisted medical coding ([3M Health Information Systems](http://solutions.3m.com/wps/portal/3M/en_US/Health-Information-Systems/HIS/Products-and-Services/Computer-Assisted-Coding/))
           - Geoparsing -- [CLAVIN](http://clavin.io/) (built by Charlie Greenbacker)
-          - Author Identification (classification/clustering)
           - Sentiment Analysis (RTNNs, classification)
-          - Language Detection
-          - Event Detection
+          - Language &amp; Event Detection
           - [Google Knowledge Graph](http://www.google.com/insidesearch/features/search/knowledge.html)
           - Named Entity Recognition and Classification
           - Machine Translation
@@ -910,7 +1088,14 @@ class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
           ```
 
           <aside class="notes">
-
+          <p><a href="http://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.sent_tokenize">sent_tokenize</a>:</p>
+          <p>Return a sentence-tokenized copy of text, using NLTK’s recommended sentence tokenizer (currently PunktSentenceTokenizer for the specified language).</p>
+          <p><a href="Tokenize a text into a sequence of alphabetic and non-alphabetic characters, using the regexp \w+|[^\w\s]+.">wordpunct_tokenize</a>:</p>
+          <p>Tokenize a text into a sequence of alphabetic and non-alphabetic characters, using the regexp \w+|[^\w\s]+.</p>
+          <p><a href="http://www.nltk.org/api/nltk.tag.html#nltk.tag.pos_tag">pos_tag</a>:</p>
+          <p>Use NLTK’s currently recommended part of speech tagger to tag the given list of tokens.</p>
+          <p><a href="http://www.nltk.org/api/nltk.tokenize.html#nltk.tokenize.punkt.PunktLanguageVars.word_tokenize">word_tokenize</a>:</p>
+          <p>Tokenize a string to split off punctuation other than periods</p>
           </aside>
 				</script>
 			</section><!-- tokenization-tagging slide ends -->
@@ -990,7 +1175,7 @@ porter = PorterStemmer()
           <aside class="notes">
 
           </aside>
-    
+
       </section><!-- stemming-code slide ends -->
 
        <!-- lemmatization slide -->
@@ -1006,7 +1191,7 @@ porter = PorterStemmer()
           <aside class="notes">
 
           </aside>
-      
+
       </section><!-- lemmatization slide ends -->
 
       <!-- lemmatization-2 slide starts -->
@@ -1019,7 +1204,7 @@ porter = PorterStemmer()
             </section>
             <!-- lemmatization-2 slide ends -->
 
-		
+
 
 			<!-- lemmatization-code slide -->
 			<section id="lemmatization-code" data-markdown>
@@ -1111,7 +1296,7 @@ porter = PorterStemmer()
             nltk.ne_chunk(
               nltk.pos_tag(
                 nltk.word_tokenize(
-                  "John Smith is from the United" 
+                  "John Smith is from the United"
                   "States of America and "
                   "works at Microsoft Research Labs")))
           ```
@@ -1131,9 +1316,9 @@ porter = PorterStemmer()
         ```
         # change the paths below to point to wherever you unzipped the Stanford NER download file
 stanford_root = '/Users/benjamin/Development/stanford-ner-2014-01-04'
-stanford_data = os.path.join(stanford_root, 
+stanford_data = os.path.join(stanford_root,
   'classifiers/english.all.3class.distsim.crf.ser.gz')
-stanford_jar  = os.path.join(stanford_root, 
+stanford_jar  = os.path.join(stanford_root,
   'stanford-ner-2014-01-04.jar')
 
 st = StanfordNERTagger(stanford_data, stanford_jar, 'utf-8')
@@ -1338,10 +1523,10 @@ for i in st.tag(
           ### Distributed Representation with gensim.models.Doc2Vec
 
           ```python
-          >>> import gensim
-          >>> documents = gensim.models.doc2vec.TaggedLineDocument("documents.txt")
-          >>> model = gensim.models.doc2vec.Doc2Vec(documents, size=7, min_count=0)
-          >>> model.docvecs[0]
+          import gensim
+          documents = gensim.models.doc2vec.TaggedLineDocument("documents.txt")
+          model = gensim.models.doc2vec.Doc2Vec(documents, size=7, min_count=0)
+          model.docvecs[0]
 
           array([-0.0225403 , -0.0212964 ,  0.02708783,  0.0049877 ,  0.04926294,
                  -0.03268785, -0.03209411], dtype=float32)
@@ -1385,11 +1570,11 @@ for i in st.tag(
         </script>
       </section><!-- much-work slide ends -->
 
-     
 
-     
 
-     
+
+
+
 
       <!-- designing-the-problem slide-->
       <section id="designing-the-problem" data-markdown>
@@ -1420,7 +1605,7 @@ for i in st.tag(
           </aside>
 				</script>
 			</section><!-- part six title slide ends -->
- 
+
   <!-- classification slide -->
       <section id="classification" data-markdown>
         <script type="text/template">
@@ -1472,7 +1657,7 @@ by Sebastian Raschka 2014</a>
 <p>In ordinary language, the principle of maximum entropy can be said to express a claim of epistemic modesty, or of maximum ignorance. The selected distribution is the one that makes the least claim to being informed beyond the stated prior data, that is to say the one that admits the most ignorance beyond the stated prior data.
  (<a href="https://en.wikipedia.org/wiki/Principle_of_maximum_entropy">Wikipedia</a>)</p>
 
- <h2 name='smoothing'>Smoothing</h2>
+ <h2 id='smoothing'>Smoothing</h2>
 
  <p>Re: Naive Bayes</p>
 
@@ -1502,7 +1687,7 @@ by Sebastian Raschka 2014</a>
           <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
 
           <aside class="notes">
-
+          To the notebook!
           </aside>
         </script>
       </section><!-- classification-pipeline slide ends -->
@@ -1538,7 +1723,8 @@ by Sebastian Raschka 2014</a>
               - LDA
 
           <aside class="notes">
-<a href="#lda">LDA</a>
+<a href="#lda">LDA - Latent Dirichlet allocation</a>
+<a href="#lsi">LSI - Latent Semantic Indexing</a>
 
 <h2 id="lda">LDA</h2>
 <p>In natural language processing, latent Dirichlet allocation (LDA) is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For example, if observations are words collected into documents, it posits that each document is a mixture of a small number of topics and that each word's creation is attributable to one of the document's topics. LDA is an example of a topic model and was first presented as a graphical model for topic discovery by David Blei, Andrew Ng, and Michael I. Jordan in 2003.[1] Essentially the same model was also proposed independently by J. K. Pritchard, M. Stephens, and P. Donnelly in the study of population genetics in 2000.[2]</p>
@@ -1563,8 +1749,8 @@ by Sebastian Raschka 2014</a>
 
 <p>Latent semantic indexing adds an important step to the document indexing process. In addition to recording which keywords a document contains, the method examines the document collection as a whole, to see which other documents contain some of those same words. LSI considers documents that have many words in common to be semantically close, and ones with few words in common to be semantically distant. This simple method correlates surprisingly well with how a human being, looking at content, might classify a document collection. Although the LSI algorithm doesn't understand anything about what the words mean, the patterns it notices can make it seem astonishingly intelligent. </p> (<a href="http://c2.com/cgi/wiki?LatentSemanticIndexing">Wild internet place</a>
 
-<a href="http://www1.se.cuhk.edu.hk/~seem5680/lecture/LSI-Eg.pdf">Summary of Grossman and Frieder’s 
-Information Retrieval, Algorithms and Heuristics, with an example of LSI which I suggest reading the whole thing 
+<a href="http://www1.se.cuhk.edu.hk/~seem5680/lecture/LSI-Eg.pdf">Summary of Grossman and Frieder’s
+Information Retrieval, Algorithms and Heuristics, with an example of LSI which I suggest reading the whole thing
 </a>
           </aside>
         </script>
@@ -1578,7 +1764,7 @@ Information Retrieval, Algorithms and Heuristics, with an example of LSI which I
           <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
 
           <aside class="notes">
-
+          To the notebook!
           </aside>
         </script>
       </section><!-- topic-modeling-pipeline slide ends -->
@@ -1612,19 +1798,19 @@ Information Retrieval, Algorithms and Heuristics, with an example of LSI which I
           <aside class="notes">
 
           </aside>
-	
+
 			</section><!-- sprints slide ends -->
 
       <!-- questions slide -->
       <section id="questions" data-background="images/question_mark.jpg" data-background-size="800px" data-markdown>
 				<script type="text/template">
           <h3><font color="white">Questions?</font></h3>
-          
-          <small><a href="http://bit.ly/25qgRN8">http://bit.ly/25qgRN8</a></small>
+
+          <small><a href="http://tiny.cc/446qby" style="color:white; background-color:black">http://tiny.cc/446qby</a></small>
           </script>
 
           <aside class="notes">
-
+          Picture attribution: http://bit.ly/25qgRN8
           </aside>
 			</section><!-- questions slide ends -->
 
