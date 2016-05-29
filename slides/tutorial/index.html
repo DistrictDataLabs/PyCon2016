@@ -139,7 +139,7 @@
 
           <img src="images/batteries-included.png" alt="Batteries Included" style="background:none; border:none; box-shadow:none;"/>
 
-          NLTK = Corpora + Algorithms
+          NLP = NLTK = Corpora + Algorithms
 
           Ready for Research!
 
@@ -152,18 +152,17 @@
       <!-- nltk-is-not slide -->
       <section id="nltk-is-not" data-markdown>
         <script type="text/template">
-          ### What is NLTK not?
+          ### What NLTK is not
 
-          - Production ready out of the box*
-          - Lightweight
-          - Generally applicable
-          - Magic
+          - NOT Production ready out of the box*
+          - NOT Lightweight
+          - NOT Generally applicable
+          - NOT Magic
 
           <small><sup>*</sup>There are actually a few things that are production-ready right out of the box.</small>
 
           <aside class="notes">
-
-          </aside>
+             </aside>
         </script>
       </section><!-- nltk-is-not slide ends -->
 
@@ -281,19 +280,33 @@
       </section><!-- end data-product-pipeline slide -->
 
       <!-- baleen slide -->
-      <section data-background="images/spacewhale.jpg" data-background-size="800px">
-				<h3 class="lightgrey">Baleen</h3>
+      <section data-markdown>
+				##Baleen
+
+- There’s plenty of natural language all over the Internet that you can use to build a custom corpora IF ONLY YOU COULD GET IT
+- One such implementation is Baleen, an RSS/Atom ingestion service that will regularly scrape the feeds specified in an OMPL format file for new content and store them as MongoDB documents for your later consumption
+
           <aside class="notes">
-            TODO: Add Baleen information
+           
           </aside>
       </section><!-- end baleen slide -->
 
+      <!-- start baleen architecture slide -->
+<section data-background="images/baleen_service_architecture.png" data-background-size="800px">
+
+</section>
+      <!-- end baleen architecture slide -->
+
       <!-- baleen-dashboard slide -->
-      <section data-background="images/baleen-screenshot.png" data-background-size="800px">
+      <section>
           <h3>Baleen Dashboard</h3>
 
+          Posts from Baleen Feeds are labelled by their feedtype category, which means we can use its data for supervised training of a model that can use text features to predict a Post’s category
+          <br/>
+
+          <img src="images/baleen-screenshot.png" height='300px'/>
           <aside class="notes">
-            TODO:
+
           </aside>
       </section><!-- baleen-dashboard slide ends -->
 
@@ -301,13 +314,38 @@
       <section id="corpus-reader" data-markdown>
         <script type="text/template">
           ### CorpusReader Objects
-
-          <aside class="notes">
-            TODO: Add CorpusReader code
-          </aside>
+- [CorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.api.CorpusReader)
+- [SyntaxCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.api.SyntaxCorpusReader)
+- [BNCCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.bnc.BNCCorpusReader)
+- [AlpinoCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.bracket_parse.AlpinoCorpusReader)
+- [BracketCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.bracket_parse.BracketParseCorpusReader)
+- [CategorizedSentencesCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.categorized_sents.CategorizedSentencesCorpusReader
+)
+- [ChasenCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.chasen.ChasenCorpusReader)
+- [CHILDESCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.childes.CHILDESCorpusReader)
+- [ChunkedCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.chunked.ChunkedCorpusReader)
+- [ComparativeSentencesCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.comparative_sents.ComparativeSentencesCorpusReader)
+- [ConllChunkCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.conll.ConllChunkCorpusReader)
+....
+and on and on
+       
         </script>
       </section><!-- corpus-reader slide ends -->
+<!-- lead in to corpus-reader notebook begins -->
+<section data-markdown>
+### Or subclass your own
 
+```python
+class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
+    """
+    Quick reader for the preprocessed 
+    tokenized and tagged version of the corpus. 
+    """
+
+    def __init__(self, root, fileids=PKL_PATTERN, 
+    categoryids=CAT_PATTERN):
+        # ...
+```
     </section>
     <!-- part two ends -->
 
