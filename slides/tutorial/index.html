@@ -139,7 +139,7 @@
 
           <img src="images/batteries-included.png" alt="Batteries Included" style="background:none; border:none; box-shadow:none;"/>
 
-          NLTK = Corpora + Algorithms
+          NLP = NLTK = Corpora + Algorithms
 
           Ready for Research!
 
@@ -152,18 +152,17 @@
       <!-- nltk-is-not slide -->
       <section id="nltk-is-not" data-markdown>
         <script type="text/template">
-          ### What is NLTK not?
+          ### What NLTK is not
 
-          - Production ready out of the box*
-          - Lightweight
-          - Generally applicable
-          - Magic
+          - NOT Production ready out of the box*
+          - NOT Lightweight
+          - NOT Generally applicable
+          - NOT Magic
 
           <small><sup>*</sup>There are actually a few things that are production-ready right out of the box.</small>
 
           <aside class="notes">
-
-          </aside>
+             </aside>
         </script>
       </section><!-- nltk-is-not slide ends -->
 
@@ -281,19 +280,33 @@
       </section><!-- end data-product-pipeline slide -->
 
       <!-- baleen slide -->
-      <section data-background="images/spacewhale.jpg" data-background-size="800px">
-				<h3 class="lightgrey">Baleen</h3>
+      <section data-markdown>
+				##Baleen
+
+- There’s plenty of natural language all over the Internet that you can use to build a custom corpora IF ONLY YOU COULD GET IT
+- One such implementation is Baleen, an RSS/Atom ingestion service that will regularly scrape the feeds specified in an OMPL format file for new content and store them as MongoDB documents for your later consumption
+
           <aside class="notes">
-            TODO: Add Baleen information
+           
           </aside>
       </section><!-- end baleen slide -->
 
+      <!-- start baleen architecture slide -->
+<section data-background="images/baleen_service_architecture.png" data-background-size="800px">
+
+</section>
+      <!-- end baleen architecture slide -->
+
       <!-- baleen-dashboard slide -->
-      <section data-background="images/baleen-screenshot.png" data-background-size="800px">
+      <section>
           <h3>Baleen Dashboard</h3>
 
+          Posts from Baleen Feeds are labelled by their feedtype category, which means we can use its data for supervised training of a model that can use text features to predict a Post’s category
+          <br/>
+
+          <img src="images/baleen-screenshot.png" height='300px'/>
           <aside class="notes">
-            TODO:
+
           </aside>
       </section><!-- baleen-dashboard slide ends -->
 
@@ -301,16 +314,41 @@
       <section id="corpus-reader" data-markdown>
         <script type="text/template">
           ### CorpusReader Objects
-
-          <aside class="notes">
-            TODO: Add CorpusReader code
-          </aside>
+- [CorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.api.CorpusReader)
+- [SyntaxCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.api.SyntaxCorpusReader)
+- [BNCCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.bnc.BNCCorpusReader)
+- [AlpinoCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.bracket_parse.AlpinoCorpusReader)
+- [BracketCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.bracket_parse.BracketParseCorpusReader)
+- [CategorizedSentencesCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.categorized_sents.CategorizedSentencesCorpusReader
+)
+- [ChasenCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.chasen.ChasenCorpusReader)
+- [CHILDESCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.childes.CHILDESCorpusReader)
+- [ChunkedCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.chunked.ChunkedCorpusReader)
+- [ComparativeSentencesCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.comparative_sents.ComparativeSentencesCorpusReader)
+- [ConllChunkCorpusReader](http://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.conll.ConllChunkCorpusReader)
+....
+and on and on
+       
         </script>
       </section><!-- corpus-reader slide ends -->
+<!-- lead in to corpus-reader notebook begins -->
+<section data-markdown>
+### Or subclass your own
 
+```python
+class BaleenCorpusReader(CategorizedCorpusReader, CorpusReader):
+    """
+    Quick reader for the preprocessed 
+    tokenized and tagged version of the corpus. 
+    """
+
+    def __init__(self, root, fileids=PKL_PATTERN, 
+    categoryids=CAT_PATTERN):
+        # ...
+```
     </section>
     <!-- part two ends -->
-
+</section>
     <!-- Part III: Natural Language Processing -->
     <section>
 
@@ -408,7 +446,7 @@
             TODO: Refactor Images on this slide
 
             Ferdinand de Saussure was a Swiss linguist and semiotician whose ideas laid a foundation for many significant developments both in linguistics and semiology in the 20th century.
-            "discovery of the internal structure of the linguistic sign differentiated the sign both from mere acoustic 'things' ... and from mental processes", and that in this development "new roads were thereby opened not only for linguistics, but also, in the future, for the theory of literature.
+            discovery of the internal structure of the linguistic sign differentiated the sign both from mere acoustic 'things' ... and from mental processes, and that in this development new roads were thereby opened not only for linguistics, but also, in the future, for the theory of literature.
           </aside>
         </script>
       </section><!-- saussurian-linguistics slide ends -->
@@ -435,38 +473,45 @@
         </script>
       </section><!-- evolution-of-linguistics slide ends -->
 
-      <!-- formal-vs-natural slide -->
-      <section id="formal-vs-natural" data-markdown>
-        <script type="text/template">
-          ### Formal vs. Natural Languages
+      <!-- formal-vs-natural slide, fomal part -->
+      <section id="formal-vs-natural-formal" data-markdown>
+
+### Formal vs. Natural Languages
 
 
-          #### Formal Languages
+#### Formal Languages
 
-          - Strict, unchanging rules defined by grammars and parsed by regular expressions
-          - Generally application specific (chemistry, math)
-          - Literal: exactly what is said is meant
-          - No ambiguity
-          - Parsable by regular expressions
-          - Inflexible: no new terms or meaning
+- Strict, unchanging rules defined by grammars and parsed by regular expressions
+- Generally application specific (chemistry, math)
+- Literal: exactly what is said is meant
+- No ambiguity
+- Parsable by regular expressions
+- Inflexible: no new terms or meaning
+
+</section>
 
 
+<section id="formal-vs-natural-natural" data-markdown>
 
-          #### Natural Languages
+### Formal vs. Natural Languages
 
-          - Flexible, evolving language that occurs naturally in human communication
-          - Unspecific and used in many domains and applications
-          - Redundant and verbose in order to make up for ambiguity
-          - Expressive
-          - Difficult to parse
-          - Very flexible even in narrow contexts
+
+#### Natural Languages
+
+- Flexible, evolving language that occurs naturally in human communication
+- Unspecific and used in many domains and applications
+- Redundant and verbose in order to make up for ambiguity
+- Expressive
+- Difficult to parse
+- Very flexible even in narrow contexts
 
 
           <aside class="notes">
-            TODO: Sort out the two column comparison
+
+
           </aside>
-        </script>
-      </section><!-- formal-vs-natural slide ends -->
+     
+      </section><!-- formal-vs-natural-natural slide ends -->
 
       <!-- cs-formal slide -->
       <section id="cs-formal" data-markdown>
@@ -475,7 +520,7 @@
           <aside class="notes">
 
           </aside>
-        </script>
+      </script>
       </section><!-- cs-formal slide ends -->
 
       <!-- formal-language-parsing slide -->
@@ -513,18 +558,6 @@
           </aside>
         </script>
       </section><!-- ambiguity slide ends -->
-
-      <!-- apostrotastrophe slide -->
-      <section id="apostrotastrophe" data-markdown>
-        <script type="text/template">
-          <img src="images/apostrotastrophe.png" alt="Miscommunication" style="max-height: 600px; background:none; border:none; box-shadow:none;"/>
-
-          <small>Most of the time. [http://bit.ly/1XlOtHv](http://bit.ly/1XlOtHv)</small>
-          <aside class="notes">
-
-          </aside>
-        </script>
-      </section><!-- apostrotastrophe slide ends -->
 
       <!-- ml-for-nlp slide -->
       <section id="ml-for-nlp" data-markdown>
@@ -871,9 +904,9 @@
           for sent in nltk.sent_tokenize(text):
             print(sent)
           for sent in nltk.sent_tokenize(text):
-            print list(nltk.wordpunct_tokenize(sent))
+            print(list(nltk.wordpunct_tokenize(sent)))
           for sent in nltk.sent_tokenize(text):
-            print list(nltk.pos_tag(nltk.word_tokenize(sent)))
+            print(list(nltk.pos_tag(nltk.word_tokenize(sent))))
           ```
 
           <aside class="notes">
@@ -888,98 +921,124 @@
 					### Stemming &amp; Lemmatization
 
 					Use stemming and lemmatization to normalize words across a corpora.
+            </script>
+        </section>
 
-					Stemming = chop off affixes to get the root stem of the word:
-					* running &#8594; run
-					* flowers &#8594; flower
-					* geese   &#8594; geese
+        <!-- stemming-lemmatization slide ends -->
 
+        <!-- stemming-1 slide -->
+        <section id="stemming-1" data-markdown>
+          <script type="text/template">
+### Stemming
+
+Stemming = chop off affixes to get the root stem of the word:
+* running &#8594; run
+* flowers &#8594; flower
+* geese   &#8594; geese
+</script>
 					<aside class="notes">
 
 					</aside>
-				</script>
-			</section><!-- stemming-lemmatization slide ends -->
 
-      <!-- stemming-lemmatization-lems slide -->
-      <section id="stemming-lemmatization-lems" data-markdown>
+			</section><!-- stemming-1 slide ends -->
+
+			<!-- stemming-2 slide -->
+      <section id="stemming-2" data-markdown>
+				<script type="text/template">
+        <style>
+            ul.col {
+              float:left;
+            }
+            ul.col li {
+              width: 100%;
+            }
+          </style>
+          ### Stemming
+
+          - Stemmers
+            - Lancaster (English, newer and aggressive)
+              - [class nltk.stem.lancaster.LancasterStemmer](http://www.nltk.org/_modules/nltk/stem/lancaster.html#LancasterStemmer)
+            - Porter (English, original stemmer)
+              - [class nltk.stem.porter.PorterStemmer](http://www.nltk.org/_modules/nltk/stem/porter.html#PorterStemmer)
+            - Snowball (Many languages, newest)
+              - [class nltk.stem.snowball.EnglishStemmer](http://www.nltk.org/_modules/nltk/stem/snowball.html#EnglishStemmer)
+              - And several others for other languages
+
+          <aside class="notes">
+
+          </aside>
+				</script>
+			</section><!-- stemming-2 slide ends -->
+
+        <!-- stemming-code slide -->
+      <section id="stemming-code" data-markdown>
         <script type="text/template">
-          ### Stemming &amp; Lemmatization
+### Stemming
+
+```python
+from nltk.stem.snowball import SnowballStemmer
+from nltk.stem.lancaster import LancasterStemmer
+from nltk.stem.porter import PorterStemmer
+
+text = list(nltk.word_tokenize("The women running in the fog passed bunnies working as computer scientists."))
+
+snowball = SnowballStemmer('english')
+lancaster = LancasterStemmer()
+porter = PorterStemmer()
+```
+</script>
+          <aside class="notes">
+
+          </aside>
+    
+      </section><!-- stemming-code slide ends -->
+
+       <!-- lemmatization slide -->
+      <section id="lemmatization" data-markdown>
+        <script type="text/template">
+          ### Lemmatization
 
           Lemmatization = look up word form in a lexicon to get canonical lemma:
           * women   &#8594; woman
           * foxes   &#8594; fox
           * sheep   &#8594; sheep
-
+</script>
           <aside class="notes">
 
           </aside>
-        </script>
-      </section><!-- stemming-lemmatization-lems slide ends -->
+      
+      </section><!-- lemmatization slide ends -->
 
-			<!-- stemming-lemmatization-2 slide -->
-      <section id="stemming-lemmatization-2" data-markdown>
-				<script type="text/template">
-          ### Stemming &amp; Lemmatization
-
-          - Stemmers
-            - Lancaster (English, newer and aggressive)
-              - class nltk.stem.lancaster.LancasterStemmer [[source]](http://www.nltk.org/_modules/nltk/stem/lancaster.html#LancasterStemmer)
-            - Porter (English, original stemmer)
-              - class nltk.stem.porter.PorterStemmer [[source]](http://www.nltk.org/_modules/nltk/stem/porter.html#PorterStemmer)
-            - Snowball (Many languages, newest)
-              - class nltk.stem.snowball.EnglishStemmer(ignore_stopwords=False) [[source]](http://www.nltk.org/_modules/nltk/stem/snowball.html#EnglishStemmer)
-              - And several others for other languages
-          - Lemmatizer
+      <!-- lemmatization-2 slide starts -->
+      <section id="lemmaization-2" data-markdown>
+        ## Lemmatization
+        - Lemmatizer
             - WordNet lexicon
-              - class nltk.stem.wordnet.WordNetLemmatizer [[source]](http://www.nltk.org/_modules/nltk/stem/wordnet.html#WordNetLemmatizer)
+              - [class nltk.stem.wordnet.WordNetLemmatizer](http://www.nltk.org/_modules/nltk/stem/wordnet.html#WordNetLemmatizer)
 
-          <aside class="notes">
+            </section>
+            <!-- lemmatization-2 slide ends -->
 
-          </aside>
-				</script>
-			</section><!-- stemming-lemmatization-2 slide ends -->
+		
 
-			<!-- stemming-lemmatization-3 slide -->
-      <section id="stemming-lemmatization-3" data-markdown>
+			<!-- lemmatization-code slide -->
+			<section id="lemmatization-code" data-markdown>
 				<script type="text/template">
-          ### Stemming &amp; Lemmatization
-
-          ```python
-          from nltk.stem.snowball import SnowballStemmer
-          from nltk.stem.lancaster import LancasterStemmer
-          from nltk.stem.porter import PorterStemmer
-
-          text = list(nltk.word_tokenize("The women running in the fog passed bunnies working as computer scientists."))
-
-          snowball = SnowballStemmer('english')
-          lancaster = LancasterStemmer()
-          porter = PorterStemmer()
-          ```
-
-          <aside class="notes">
-
-          </aside>
-				</script>
-			</section><!-- stemming-lemmatization-3 slide ends -->
-
-			<!-- stemming-lemmatization-4 slide -->
-			<section id="stemming-lemmatization-4" data-markdown>
-				<script type="text/template">
-          ### Stemming &amp; Lemmatization
+          ### Lemmatization
 
           ```python
           from nltk.stem.wordnet import WordNetLemmatizer
 
           lemmatizer = WordNetLemmatizer()
           lemmas = [lemmatizer.lemmatize(t) for t in text]
-          print " ".join(lemmas)
+          print(" ".join(lemmas))
           ```
 
           <aside class="notes">
 
 					</aside>
 				</script>
-			</section><!-- stemming-lemmatization-4 slide ends -->
+			</section><!-- lemmatization-code slide ends -->
 
 			<!-- stemming-lemmatization-5 slide -->
 			<section id="stemming-lemmatization-5" data-markdown>
@@ -1045,11 +1104,48 @@
 				<script type="text/template">
           ### Named Entity Recognition
 
+          NLTK has an excellent MaxEnt backed Named Entity Recognizer that is trained on the Penn Treebank. You can also retrain the chunker if you would like - the code is very readable to extend it with a Gazette or otherwise.
+
+          ```
+          print(
+            nltk.ne_chunk(
+              nltk.pos_tag(
+                nltk.word_tokenize(
+                  "John Smith is from the United" 
+                  "States of America and "
+                  "works at Microsoft Research Labs")))
+          ```
           <aside class="notes">
 
 					</aside>
 				</script>
 			</section><!-- named-entity-recognition slide ends -->
+
+      <!-- named-entity-recognition-2 begins -->
+      <section id="named-entity-recognition-2" data-markdown>
+        <script type='text/template'>
+        ### Named Entity Recognition
+
+        You can also wrap the Stanford NER system, which many of you are also probably used to using.
+
+        ```
+        # change the paths below to point to wherever you unzipped the Stanford NER download file
+stanford_root = '/Users/benjamin/Development/stanford-ner-2014-01-04'
+stanford_data = os.path.join(stanford_root, 
+  'classifiers/english.all.3class.distsim.crf.ser.gz')
+stanford_jar  = os.path.join(stanford_root, 
+  'stanford-ner-2014-01-04.jar')
+
+st = StanfordNERTagger(stanford_data, stanford_jar, 'utf-8')
+for i in st.tag(
+  "John Bengfort is from the United States of America and "
+  "works at Microsoft Research Labs".split()):
+    print('[' + i[1] + '] ' + i[0])
+  ```
+
+        </script>
+
+      </section>
 
     </section>
     <!-- part four ends -->
@@ -1289,74 +1385,16 @@
         </script>
       </section><!-- much-work slide ends -->
 
-      <!-- classification slide -->
-      <section id="classification" data-markdown>
-        <script type="text/template">
-          ### Classification
+     
 
-          - Classification
-            - Supervised ML
-            - Requires pre-labeled corpus of documents
-            - Sentiment Analysis
-            - Models:
-              - Naive Bayes
-              - Maximum Entropy
+     
 
-          <aside class="notes">
-
-          </aside>
-        </script>
-      </section><!-- classification slide ends -->
-
-      <!-- clustering slide -->
-      <section id="clustering" data-markdown>
-        <script type="text/template">
-          ### Clustering
-
-          - Clustering
-            - Unsupervised ML
-            - Groups similar documents together
-            - Topic Modeling
-            - Models:
-              - LDA
-              - NNMF
-
-          <aside class="notes">
-
-          </aside>
-        </script>
-      </section><!-- clustering slide ends -->
-
-      <!-- classification-pipeline slide-->
-      <section id="classification-pipeline" data-markdown>
-        <script type="text/template">
-          ### Classification Pipeline
-
-          <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
-
-          <aside class="notes">
-
-          </aside>
-        </script>
-      </section><!-- classification-pipeline slide ends -->
-
-      <!-- topic-modeling-pipeline slide-->
-      <section id="topic-modeling-pipeline" data-markdown>
-        <script type="text/template">
-          ### Topic Modeling Pipeline
-
-          <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
-
-          <aside class="notes">
-
-          </aside>
-        </script>
-      </section><!-- topic-modeling-pipeline slide ends -->
+     
 
       <!-- designing-the-problem slide-->
       <section id="designing-the-problem" data-markdown>
         <script type="text/template">
-          These two fundamental techniques are the basis of most NLP.
+          Classification and clustering are the two fundamental techniques that are the basis of most NLP.
 
           It’s all about designing the problem correctly.
 
@@ -1382,7 +1420,39 @@
           </aside>
 				</script>
 			</section><!-- part six title slide ends -->
+ 
+  <!-- classification slide -->
+      <section id="classification" data-markdown>
+        <script type="text/template">
+          ### Classification
 
+          - Classification
+            - Supervised ML
+            - Requires pre-labeled corpus of documents
+            - Sentiment Analysis
+            - Models:
+              - Naive Bayes
+              - Maximum Entropy
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- classification slide ends -->
+
+
+ <!-- classification-pipeline slide-->
+      <section id="classification-pipeline" data-markdown>
+        <script type="text/template">
+          ### Classification Pipeline
+
+          <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- classification-pipeline slide ends -->
     </section>
     <!-- part six ends -->
 
@@ -1399,6 +1469,39 @@
           </aside>
 				</script>
 			</section><!-- part seven title slide ends -->
+
+
+      <!-- clustering slide -->
+      <section id="clustering" data-markdown>
+        <script type="text/template">
+          ### Clustering
+
+          - Clustering
+            - Unsupervised ML
+            - Groups similar documents together
+            - Topic Modeling
+            - Models:
+              - K means
+              - LDA
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- clustering slide ends -->
+
+       <!-- topic-modeling-pipeline slide-->
+      <section id="topic-modeling-pipeline" data-markdown>
+        <script type="text/template">
+          ### Topic Modeling Pipeline
+
+          <img src="images/classification-pipeline.png" alt="Classification Pipeline" style="border: none;"/>
+
+          <aside class="notes">
+
+          </aside>
+        </script>
+      </section><!-- topic-modeling-pipeline slide ends -->
 
     </section>
     <!-- part seven ends -->
@@ -1422,21 +1525,27 @@
 				<script type="text/template">
           ## Sprints
 
+          - Baleen: RSS/Atom ingestion tool
+          - Trinket: Visual model analyzer
+          - [See the PyCon Sprints schedule for more details](https://us.pycon.org/2016/community/sprints/)
+          </script>
           <aside class="notes">
 
           </aside>
-				</script>
+	
 			</section><!-- sprints slide ends -->
 
       <!-- questions slide -->
-      <section id="questions" data-markdown>
+      <section id="questions" data-background="images/question_mark.jpg" data-background-size="800px" data-markdown>
 				<script type="text/template">
-          ## Questions?
+          <h3><font color="white">Questions?</font></h3>
+          
+          <small><a href="http://bit.ly/25qgRN8">http://bit.ly/25qgRN8</a></small>
+          </script>
 
           <aside class="notes">
 
           </aside>
-				</script>
 			</section><!-- questions slide ends -->
 
     </section>
